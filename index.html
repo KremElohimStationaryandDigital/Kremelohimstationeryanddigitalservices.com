@@ -12,32 +12,42 @@
     <style>
 /* =========================================
    1. GLOBAL VARIABLES & DARK MODE
-   ========================================= */
+   =========/* =============================== 
+   VIBRANT COLOR SYSTEM (IMPROVED)
+================================ */
 :root {
-    /* Primary Palette */
-    --primary: #1e293b;      /* Sophisticated Slate Blue/Navy */
-    --secondary: #eab308;    /* Muted Golden Yellow */
-    --accent: #10b981;       /* Clean Emerald/Mint */
+    /* Primary Palette (BOOSTED) */
+    --primary: #2563eb;      /* vibrant blue (was dull navy) */
+    --secondary: #facc15;    /* brighter gold */
+    --accent: #22c55e;       /* fresh green (more lively) */
     
     /* Backgrounds & Text */
-    --dark: #0f172a;
-    --light: #f8fafc;        
+    --dark: #0b1220;         /* deeper, richer dark */
+    --light: #f9fafb;        
     --surface: #ffffff;      
-    --text: #334155;
+    --text: #1e293b;         /* stronger contrast */
     --text-muted: #64748b;
     
     /* Effects & Backgrounds */
-    --glass: rgba(255, 255, 255, 0.9);
+    --glass: rgba(255, 255, 255, 0.95); /* clearer glass */
     --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     --hero-bg: url('images/hero-main.jpg'); 
 }
 
+/* =============================== 
+   DARK MODE (FIXED DULLNESS)
+================================ */
 body.dark-mode {
-    --light: #0f172a;
+    --light: #0b1220;
     --surface: #1e293b;
-    --text: #f1f5f9;
-    --text-muted: #94a3b8;
-    --glass: rgba(15, 23, 42, 0.95);
+
+    /* BOOST TEXT VISIBILITY */
+    --text: #f9fafb;         /* brighter white */
+    --text-muted: #cbd5f5;   /* less dull */
+
+    /* BETTER GLASS EFFECT */
+    --glass: rgba(15, 23, 42, 0.85);
+
     background-color: var(--light);
 }
 
@@ -59,7 +69,6 @@ body {
     transition: background 0.5s ease; 
     background-color: var(--light);
 }
-
 /* =========================================
    3. PROGRESS BARS
    ========================================= */
@@ -88,10 +97,13 @@ header {
     position: sticky; 
     top: 0; 
     z-index: 2000; 
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05); 
-    border-bottom: 1px solid rgba(0,0,0,0.05); 
+    box-shadow: 0 2px 15px rgba(0,0,0,0.06); 
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08); 
 }
 
+/* ==============================
+   NAV (CLEANER & MODERN SPACING)
+============================== */
 nav { 
     display: flex; 
     justify-content: space-between; 
@@ -99,19 +111,28 @@ nav {
     padding: 12px 8%; 
 }
 
+/* ==============================
+   LOGO IMAGE (SHARPER FEEL)
+============================== */
 .logo-img {
-    width: 24px;
+    width: 28px;
     height: auto;
     object-fit: contain;
 }
 
+/* ==============================
+   BRAND TEXT (MODERN CORPORATE STYLE)
+============================== */
 .brand-text b { 
-    color: var(--primary); 
-    font-size: 1.1rem; 
+    color: #0f172a;   /* deep professional navy */
+    font-size: 1.15rem; 
+    font-weight: 700;
+    letter-spacing: 0.3px;
 }
 
 .brand-text span { 
-    color: var(--secondary); 
+    color: #2563eb;   /* modern professional blue */
+    font-weight: 600;
 }
 
 .nav-links { 
@@ -192,35 +213,66 @@ nav {
 
 /* =========================================
    6. HERO SECTION
-   ========================================= */
+/* =========================================
+   HERO SECTION (NO OVERLAY – FULL IMAGE)
+========================================= */
 .hero {
-    height: 70vh;
-    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.70)), var(--hero-bg) center/cover fixed;
+    height: 75vh;
+    position: relative;
+    overflow:hidden;
+
+    /* PURE IMAGE — NO FADE */
+    background: var(--hero-bg) center/cover no-repeat;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
+
     text-align: center;
-    clip-path: polygon(0 0, 100% 0, 100% 98%, 0% 100%);
+    color: #ffffff;
+
+    clip-path: polygon(0 0, 100% 0, 100% 96%, 0% 100%);
 }
 
+/* =========================================
+   TEXT BACKDROP (SOFT, NOT FULL FADE)
+========================================= */
+.hero .content {
+    background: rgba(0, 0, 0, 0.45); /* only behind text */
+    padding: 25px 35px;
+    border-radius: 10px;
+}
+
+/* =========================================
+   HERO TITLE (CLEAR & PROFESSIONAL)
+========================================= */
 .hero h1 { 
-    font-size: 2.8rem; 
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.4); 
-    margin-bottom: 10px; 
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+
+    /* SHARP TEXT VISIBILITY */
+    text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+    
 }
 
+/* =========================================
+   TYPING TEXT
+========================================= */
 .typing { 
-    border-right: 2px solid var(--secondary); 
+    border-right: 2px solid #fff; 
     overflow: hidden; 
     white-space: nowrap; 
-    font-size: 0.8rem; 
+    font-size: 1.3rem; 
     margin: 0 auto; 
-    animation: typing 4s steps(40) infinite; 
-    width: fit-content; 
+    animation: typing 4s steps(40) infinite;
+    width: fit-content;
 }
 
+/* =========================================
+   ANIMATION
+========================================= */
 @keyframes typing { 
     from { width: 0 } 
     to { width: 100% } 
@@ -425,17 +477,6 @@ section {
 .bulletin-list li i {
     color: var(--primary);
     width: 20px;
-}
-
-.stat-tag {
-    margin-top: 20px;
-    background: #f1c40f;
-    color: #000;
-    font-size: 0.7rem;
-    padding: 3px 8px;
-    display: inline-block;
-    font-weight: bold;
-    border-radius: 2px;
 }
 
 /* =========================================
@@ -831,11 +872,7 @@ section {
     }
 }
 /* CSS Styles */
-:root {
-    --light: #f9f9f9;
-    --primary: #333;
-    --secondary: #ffce00; 
-}
+
 
 .section-title {
     font-size: 2.5rem;
@@ -903,6 +940,7 @@ section {
   background: var(--accent);
   color: black;
 }
+
     </style>
 </head>
 <body>
@@ -1015,13 +1053,12 @@ section {
     </div>
 
   <section class="hero" id="home">
-        <h1 data-aos="fade-down" data-i18n="hero_title">STATIONERY & DIGITAL SERVICES</h1>
-        <div style="height: 30px; display:flex; justify-content:center;">
-            <p class="typing" style="color:var(--secondary); font-weight:bold; letter-spacing:2px;" data-i18n="hero_sub">"We Serve With Integrity "</p>
+        <div style="height: 20px; display:flex; justify-content:center;">
+          <p></p><p></p>
+          
         </div>
         <div style="margin-top:20px;" data-aos="zoom-in">
 
-            <button class="btn" style="background:transparent; border:2px solid white; color:white; border-radius:50px; margin-left:10px;" onclick="showTour()" data-i18n="watch_tour">WATCH TOUR</button>
         </div>
     </section>
 
@@ -1049,8 +1086,12 @@ section {
         <div data-aos="fade-right">
             <h2 class="section-title" style="text-align:left; margin-bottom: 20px;">About Us</h2>
             <div style="margin-bottom:15px; font-size:1rem; line-height:1.6; color:#444;">
-              
+             
                 <p>We are dedicated to delivering excellence and innovation. Our portfolio showcases a journey of creativity and technical precision.</p>
+                 <p> </p>
+                <p class="typing" style="color:var(--secondary); font-weight:bold; letter-spacing:3px;" data-i18n="hero_sub">"We Serve With Integrity "
+                </p>
+                <p></p>
             </div>
         </div>
 
@@ -1536,19 +1577,6 @@ function toggleMenu() {
     const nav = document.getElementById('main-nav');
     const icon = document.getElementById('menu-icon');
     
-    // Toggle the 'active' class on the menu
-    nav.classList.toggle('active');
-    
-    // Switch between the bars icon and the X icon
-    if (nav.classList.contains('active')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-    } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-    }
-    
-    // Toggle the 'active' class on the menu
     nav.classList.toggle('active');
     
     // Switch between the bars icon and the X icon
