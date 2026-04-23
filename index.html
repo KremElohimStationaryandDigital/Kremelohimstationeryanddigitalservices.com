@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krem Elohim Stationery & Digital Services</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+/* =========================================
+   1. GLOBAL VARIABLES & DARK MODE
+   ========================================= */
+:root {
+    /* Primary Palette */
+    --primary: #1e293b;      /* Sophisticated Slate Blue/Navy */
+    --secondary: #eab308;    /* Muted Golden Yellow */
+    --accent: #10b981;       /* Clean Emerald/Mint */
+    
+    /* Backgrounds & Text */
+    --dark: #0f172a;
+    --light: #f8fafc;        
+    --surface: #ffffff;      
+    --text: #334155;
+    --text-muted: #64748b;
+    
+    /* Effects & Backgrounds */
+    --glass: rgba(255, 255, 255, 0.9);
+    --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --hero-bg: url('images/hero-main.jpg'); 
+}
+
+body.dark-mode {
+    --light: #0f172a;
+    --surface: #1e293b;
+    --text: #f1f5f9;
+    --text-muted: #94a3b8;
+    --glass: rgba(15, 23, 42, 0.95);
+    background-color: var(--light);
+}
+
+/* =========================================
+   2. BASE STYLES & RESET
+   ========================================= */
+* { 
+    box-sizing: border-box; 
+    scroll-behavior: smooth; 
+    margin: 0; 
+    padding: 0; 
+}
+
+body { 
+    font-family: 'Open Sans', sans-serif; 
+    color: var(--text); 
+    line-height: 1.5; 
+    overflow-x: hidden; 
+    transition: background 0.5s ease; 
+    background-color: var(--light);
+}
+
+/* =========================================
+   3. PROGRESS BARS
+   ========================================= */
+.progress-container { 
+    position: fixed; 
+    top: 0; 
+    z-index: 5000; 
+    width: 100%; 
+    height: 4px; 
+    background: transparent; 
+}
+
+.progress-bar { 
+    height: 100%; 
+    background: linear-gradient(to right, var(--primary), var(--secondary)); 
+    width: 0%; 
+    transition: width 0.1s; 
+}
+
+/* =========================================
+   4. HEADER & NAVIGATION
+   ========================================= */
+header { 
+    background: var(--glass); 
+    backdrop-filter: blur(12px); 
+    position: sticky; 
+    top: 0; 
+    z-index: 2000; 
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05); 
+    border-bottom: 1px solid rgba(0,0,0,0.05); 
+}
+
+nav { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 12px 8%; 
+}
+
+.logo-img {
+    width: 24px;
+    height: auto;
+    object-fit: contain;
+}
+
+.brand-text b { 
+    color: var(--primary); 
+    font-size: 1.1rem; 
+}
+
+.brand-text span { 
+    color: var(--secondary); 
+}
+
+.nav-links { 
+    display: flex; 
+    gap: 20px; 
+    list-style: none; 
+}
+
+.nav-links a { 
+    text-decoration: none; 
+    color: var(--text); 
+    font-weight: 700; 
+    font-size: 0.85rem; 
+    text-transform: uppercase;
+    transition: 0.3s; 
+    position: relative; 
+}
+
+.nav-links a::after { 
+    content: ''; 
+    position: absolute; 
+    bottom: -5px; 
+    left: 0; 
+    width: 0; 
+    height: 2px; 
+    background: var(--secondary); 
+    transition: 0.3s; 
+}
+
+.nav-links a:hover::after { 
+    width: 100%; 
+}
+
+.nav-links a:hover { 
+    color: var(--primary); 
+}
+
+/* =========================================
+   5. SOCIAL & SIDEBARS
+   ========================================= */
+.social-sidebar { 
+    position: fixed; 
+    left: 0; 
+    top: 30%; 
+    z-index: 1500; 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.social-sidebar a { 
+    background: var(--primary); 
+    color: white; 
+    padding: 10px; 
+    font-size: 1rem; 
+    margin-bottom: 1px; 
+    transition: var(--transition); 
+    border-radius: 0 4px 4px 0; 
+}
+
+.social-sidebar a:hover { 
+    padding-left: 20px; 
+    background: var(--secondary); 
+}
+
+.social-icons a {
+    color: var(--primary); 
+    font-size: 1.8rem;
+    transition: var(--transition);
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    color: var(--secondary); 
+    transform: translateY(-3px);
+    display: inline-block;
+}
+
+/* =========================================
+   6. HERO SECTION
+   ========================================= */
+.hero {
+    height: 70vh;
+    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.70)), var(--hero-bg) center/cover fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    clip-path: polygon(0 0, 100% 0, 100% 98%, 0% 100%);
+}
+
+.hero h1 { 
+    font-size: 2.8rem; 
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.4); 
+    margin-bottom: 10px; 
+}
+
+.typing { 
+    border-right: 2px solid var(--secondary); 
+    overflow: hidden; 
+    white-space: nowrap; 
+    font-size: 0.8rem; 
+    margin: 0 auto; 
+    animation: typing 4s steps(40) infinite; 
+    width: fit-content; 
+}
+
+@keyframes typing { 
+    from { width: 0 } 
+    to { width: 100% } 
+}
+
+/* =========================================
+   7. SECTIONS & TITLES
+   ========================================= */
+section { 
+    padding: 80px 8%; 
+}
+
+.section-title { 
+    font-size: 2.2rem; 
+    margin-bottom: 40px; 
+    text-align: center; 
+    position: relative; 
+}
+
+.section-title::after { 
+    content: ''; 
+    display: block; 
+    width: 60px; 
+    height: 4px; 
+    background: var(--secondary); 
+    margin: 15px auto; 
+}
+
+/* =========================================
+   8. CARDS & GRID SYSTEM
+   ========================================= */
+.grid-compact { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+    gap: 20px; 
+}
+
+.card { 
+    background: var(--surface); 
+    border-radius: 15px; 
+    overflow: hidden; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+    transition: var(--transition); 
+    border: 1px solid rgba(0,0,0,0.05); 
+}
+
+.card img { 
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+}
+
+.card:hover { 
+    transform: translateY(-10px); 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15); 
+}
+
+/* =========================================
+   9. SERVICE CARDS & METRICS
+   ========================================= */
+.service-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.service-image {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.service-content {
+    padding: 25px;
+}
+
+.service-content h3 {
+    color: var(--primary);
+    font-size: 1.25rem;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.service-points {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.service-points li {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.service-points li i {
+    color: #2ecc71; /* Success Green */
+    font-size: 0.8rem;
+}
+
+.performance-metric span {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+}
+
+.performance-metric .bar {
+    height: 6px;
+    background: #eee;
+    border-radius: 10px;
+    margin-top: 5px;
+    overflow: hidden;
+}
+
+.performance-metric .fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.skill-bar { height: 8px; background: #eee; border-radius: 10px; margin-top: 5px; overflow: hidden; }
+.skill-fill { height: 100%; background: var(--accent); width: 0; transition: 1.5s ease-in-out; }
+
+/* =========================================
+   10. BULLETIN BOARD
+   ========================================= */
+.bulletin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.bulletin-card {
+    background: #ffffff;
+    padding: 30px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+    border: 1px solid #ddd;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.bulletin-card:hover {
+    transform: scale(1.02) rotate(0deg) !important;
+    z-index: 10;
+}
+
+.pin {
+    width: 15px;
+    height: 15px;
+    background: #e74c3c;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.card-header {
+    border-bottom: 2px solid var(--primary);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: var(--primary);
+    text-align: center;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+.bulletin-list {
+    list-style: none;
+    padding: 0;
+}
+
+.bulletin-list li {
+    padding: 10px 0;
+    border-bottom: 1px dashed #eee;
+    font-size: 0.9rem;
+    color: #444;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bulletin-list li i {
+    color: var(--primary);
+    width: 20px;
+}
+
+.stat-tag {
+    margin-top: 20px;
+    background: #f1c40f;
+    color: #000;
+    font-size: 0.7rem;
+    padding: 3px 8px;
+    display: inline-block;
+    font-weight: bold;
+    border-radius: 2px;
+}
+
+/* =========================================
+   11. CART, SEARCH & OVERLAYS
+   ========================================= */
+#cart-panel { 
+    position: fixed; 
+    right: -350px; 
+    top: 0; 
+    width: 320px; 
+    height: 100%; 
+    background: var(--surface); 
+    z-index: 4000; 
+    box-shadow: -5px 0 20px rgba(0,0,0,0.2); 
+    transition: 0.4s; 
+    padding: 25px; 
+    color: var(--dark); 
+}
+
+#cart-panel.active { right: 0; }
+
+.cart-item { 
+    display: flex; 
+    justify-content: space-between; 
+    margin-bottom: 15px; 
+    border-bottom: 1px solid #eee; 
+    padding-bottom: 5px; 
+}
+
+#search-overlay { 
+    position: fixed; 
+    top: -100%; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,74,153,0.95); 
+    z-index: 6000; 
+    transition: 0.5s; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    opacity: 0; 
+}
+
+#search-overlay.active { 
+    top: 0; 
+    opacity: 1; 
+}
+
+/* =========================================
+   12. TABLES & BUTTONS
+   ========================================= */
+.price-table { 
+    table-layout: auto;
+    width: 100% !important;
+    max-width: 100%;
+    border-collapse: collapse; 
+    margin-top: 20px; 
+    font-size: 0.85rem; 
+}
+
+.price-table th { 
+    background: var(--primary); 
+    color: white; 
+    padding: 12px; 
+    text-align: left; 
+}
+
+.price-table td { 
+    padding: 10px 12px; 
+    border-bottom: 1px solid rgba(0,0,0,0.05); 
+}
+
+.btn { 
+    cursor: pointer; 
+    border: none; 
+    transition: var(--transition); 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 8px; 
+    font-weight: bold; 
+    border-radius: 4px; 
+    padding: 10px 20px; 
+    font-size: 0.85rem; 
+}
+
+.btn:active { transform: scale(0.95); }
+
+.fixed-download-btn {
+    display: inline-flex;
+    align-items: center;
+    background: var(--primary);
+    color: white !important;
+    padding: 12px 24px;
+    text-decoration: none !important;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s, background 0.2s;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s ease;
+    background: #ddd;
+}
+
+.filter-btn:hover {
+    background: var(--secondary) !important;
+    color: var(--primary) !important;
+}
+
+/* =========================================
+   13. FORM & SLIDERS
+   ========================================= */
+.testimonial-slider { 
+    background: var(--glass); 
+    padding: 30px; 
+    border-radius: 15px; 
+    text-align: center; 
+    max-width: 600px; 
+    margin: 0 auto; 
+    min-height: 200px; 
+    border: 1px solid rgba(0,0,0,0.05); 
+}
+
+.contact-form { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; 
+    background: var(--glass); 
+    padding: 30px; 
+    border-radius: 15px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+}
+
+.contact-form input, .contact-form textarea { 
+    width: 100%; 
+    padding: 12px; 
+    border-radius: 8px; 
+    border: 1px solid #ddd; 
+    outline: none; 
+    font-family: inherit; 
+}
+
+.contact-form textarea { 
+    grid-column: span 2; 
+    height: 120px; 
+}
+
+.slideshow-container {
+    position: relative;
+    background: #eee;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active-dot {
+    background-color: var(--secondary) !important;
+}
+
+/* =========================================
+   14. PAYMENT ICONS & BRANDING
+   ========================================= */
+.payment-icons {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.payment-icons:hover {
+    opacity: 1;
+}
+
+.payment-icons i { transition: 0.3s; cursor: pointer; }
+.payment-icons i:hover { transform: scale(1.3); color: var(--secondary); }
+
+.payment-container .pay-method {
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.pay-label {
+    display: block;
+    font-size: 0.6rem;
+    font-weight: bold;
+    margin-top: 4px;
+    text-transform: uppercase;
+}
+
+/* Official Brand Colors */
+.fa-cc-visa { color: #1A1F71; font-size: 2.2rem; }
+.fa-cc-mastercard { color: #EB001B; font-size: 2.2rem; }
+.mtn-icon { color: #FFCC00; font-size: 2rem; }
+.airtel-icon { color: #FF0000; font-size: 2rem; }
+
+/* =========================================
+   15. UTILITIES & FLOATING ELEMENTS
+   ========================================= */
+.wa-float { 
+    position: fixed; 
+    bottom: 20px; 
+    right: 20px; 
+    background: #25d366; 
+    color: white; 
+    width: 50px; 
+    height: 50px; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 1.5rem; 
+    z-index: 3000; 
+}
+
+.back-top { 
+    position: fixed; 
+    bottom: 80px; 
+    right: 20px; 
+    background: var(--primary); 
+    color: white; 
+    width: 40px; 
+    height: 40px; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    opacity: 0; 
+    transition: 0.3s; 
+    z-index: 2999; 
+}
+
+.cookie-banner { 
+    position: fixed; 
+    bottom: 0; 
+    width: 100%; 
+    background: var(--dark); 
+    color: white; 
+    padding: 10px; 
+    text-align: center; 
+    z-index: 7000; 
+    font-size: 0.8rem; 
+}
+
+.pulse-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #22c55e;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+    box-shadow: 0 0 0 rgba(34, 197, 94, 0.4);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+
+/* =========================================
+   16. FOOTER STYLING
+   ========================================= */
+.footer-links a {
+    display: block;
+    font-size: 0.8rem;
+    opacity: 0.8;
+    color: white;
+    text-decoration: none;
+    line-height: 2;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--secondary);
+    opacity: 1;
+    padding-left: 5px;
+}
+
+.contact-links a {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.contact-links a:hover {
+    color: var(--secondary);
+}
+
+.footer-socials a:hover .fa-facebook { color: #1877F2; }
+.footer-socials a:hover .fa-whatsapp { color: #25D366; }
+.footer-socials a:hover .fa-linkedin { color: #0077B5; }
+
+/* =========================================
+   17. MOBILE RESPONSIVENESS
+   ========================================= */
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 1.6rem;
+    color: var(--primary);
+    transition: var(--transition);
+    z-index: 3000;
+}
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 1.8rem; }
+    .menu-toggle { display: block; }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--glass);
+        backdrop-filter: blur(15px);
+        padding: 20px;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        border-top: 1px solid rgba(0,0,0,0.05);
+        gap: 30px;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+        animation: slideDown 0.3s ease forwards;
+    }
+
+    .contact-form {
+        grid-template-columns: 1fr;
+    }
+    .contact-form textarea {
+        grid-column: span 1;
+    }
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Redundant Section for Length Padding as requested - Retaining all original styles */
+#about h2.section-title::after {
+    left: 0;
+    transform: none;
+    width: 60px;
+}
+
+.pillar-box:hover {
+    transform: translateX(10px);
+}/* Base styles for mobile */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide by default */
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #fff;
+        padding: 20px;
+    }
+
+    /* This is what the JS toggles */
+    .nav-links.active {
+        display: flex; 
+    }
+}
+/* CSS Styles */
+:root {
+    --light: #f9f9f9;
+    --primary: #333;
+    --secondary: #ffce00; 
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--primary);
+}
+.slideshow-container {
+  position: relative;
+  max-width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Show active slide */
+.slide.active {
+  display: block;
+}
+
+/* Dots */
+.dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.dot {
+  height: 10px;
+  width: 10px;
+  margin: 5px;
+  background: gray;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: black;
+}.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.slide.active {
+  opacity: 1;
+}.price {
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.cta {
+  background: var(--accent);
+  color: black;
+}
+    </style>
+</head>
+<body>
+
+  <div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
+
+    <div id="search-overlay">
+        <i class="fas fa-times" style="position:absolute; top:30px; right:30px; color:white; font-size:1.8rem; cursor:pointer;" onclick="toggleSearch()"></i>
+        <div style="width: 80%; text-align: center;">
+            <input type="text" id="serviceSearchInput" onkeyup="executeSearch(event)" placeholder="Search for services..." style="width: 100%; padding: 15px; font-size: 1.2rem; border-radius: 10px; border: none; outline: none;">
+            <p style="color: white; margin-top: 15px; opacity: 0.8;" data-i18n="search_sub">Press Enter to search the Krem Elohim Stationery & Digital Services</p>
+        </div>
+    </div>
+
+    <div id="cart-panel">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+            <h3>Your Quote Basket</h3>
+            <i class="fas fa-times" onclick="toggleCart()" style="cursor:pointer; font-size:1.5rem;"></i>
+        </div>
+        <div id="cart-items-list">Your basket is empty.</div>
+        <div style="position:absolute; bottom:30px; width:84%;">
+            <hr style="margin-bottom:15px;">
+            <div style="display:flex; justify-content:space-between; font-weight:bold; font-size:1.2rem; margin-bottom:20px;">
+                <span>Total:</span> <span id="cart-total">0</span> UGX
+            </div>
+            <button class="btn" style="width:100%; background:var(--accent); color:white; padding:15px; border-radius:10px;" onclick="checkoutWhatsApp()">ORDER VIA WHATSAPP</button>
+        </div>
+    </div>
+
+     <header>
+        <nav>
+            <a href="#top" class="logo-box" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+<img src="logo.png" width="100" height="100" alt="Krem Elohim Logo">
+                <div class="brand-text">
+                    <b>KREM ELOHIM</b><span> STATIONERY & DiGITAL SERVICES</span>
+                    <span style="font-size: 0.55rem; display: block; letter-spacing: 0.5px; color: #756; font-weight: bold; text-transform: uppercase;" data-i18n="brand_sub"></span>
+                </div>
+            </a>
+            <nav>
+    <a href="#top" class="logo-box" ... > </a>
+
+  <div class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars" id="menu-icon"></i>
+    </div>
+
+    <div class="header-icons"></div>
+</nav>
+            <ul class="nav-links">
+                <li><a href="#top" data-i18n="nav_home" style="color:var(--secondary)">Home</a></li>
+                <li><a href="#about" data-i18n="nav_about">About Us</a></li>
+                <li><a href="#about" data-i18n="nav_about">Recent Featured Works</a></li>
+                <li><a href="#about" data-i18n="nav_about">Modern Machinery & Technology</a></li>
+                <li><a href="#services" data-i18n="nav_services">Our Services</a></li>
+                <li><a href="#pricing" data-i18n="nav_pricing">Practical Pricing guide</a></li>
+                <li><a href="#testimonials" data-i18n="nav_testimonials">Client Voices</a></li>
+                <li><a href="#contact-page" data-i18n="nav_contact">Contact</a></li>
+            </ul>
+            <div class="header-icons" style="display:flex; gap:12px; align-items:center; font-size:1rem; cursor:pointer;">
+                <i class="fas fa-search" onclick="toggleSearch()"></i>
+                <div style="position:relative;" onclick="toggleCart()">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span id="cart-badge" style="position:absolute; -10px; right:-10px; background:var(--secondary); color:white; font-size:0.6rem; padding:2px 5px; border-radius:50%;">0</span>
+                </div>
+                <i class="fas fa-moon" onclick="toggleDarkMode()" id="theme-icon"></i>
+                
+                <select id="langSwitcher" onchange="changeLanguage(this.value)" style="border:none; background:transparent; font-weight:bold; font-size: 0.75rem; cursor:pointer;">
+                    <option value="en">EN</option>
+                    <option value="lg">LG</option>
+                    <option value="sw">SW</option>
+                    <option value="fr">FR</option>
+                    <option value="es">ES</option>
+                    <option value="de">DE</option>
+                    <option value="zh">ZH</option>
+                    <option value="ar">AR</option>
+                    <option value="hi">HI</option>
+                    <option value="pt">PT</option>
+                    <option value="ru">RU</option>
+                    <option value="ja">JA</option>
+                    <option value="it">IT</option>
+                    <option value="ko">KO</option>
+                    <option value="tr">TR</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+
+   <div class="social-icons">
+    <a href="https://www.facebook.com/Khaukha Emmanuel K-rwebt" target="_blank" title="Follow on Facebook">
+        <i class="fab fa-facebook"></i>
+    </a>
+
+    <a href="https://www.instagram.com/Khaukha Emmanuel K-rwebt" target="_blank" title="Follow on Instagram">
+        <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="https://wa.me/256773353091?text=Hello%20Krem%20Elohim,%20I'm%20interested%20in%20your%20services" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+   <a href="https://www.linkedin.com/in/khaukha-emmanuel-k-rwebt" target="_blank" title="Connect on LinkedIn">
+    <i class="fab fa-linkedin"></i>
+</a>
+
+<a href="mailto:Khaukhaemmanuelll20@gmail.com?subject=Project%20Inquiry" title="Email Me">
+    <i class="fas fa-envelope"></i>
+</a>
+<a href="https://www.tiktok.com/@Krem Elohim Stationary and Digital Services" target="_blank" title="Follow on TikTok">
+    <i class="fab fa-tiktok"></i>
+</a>
+    </div>
+
+  <section class="hero" id="home">
+        <h1 data-aos="fade-down" data-i18n="hero_title">STATIONERY & DIGITAL SERVICES</h1>
+        <div style="height: 30px; display:flex; justify-content:center;">
+            <p class="typing" style="color:var(--secondary); font-weight:bold; letter-spacing:2px;" data-i18n="hero_sub">"We Serve With Integrity "</p>
+        </div>
+        <div style="margin-top:20px;" data-aos="zoom-in">
+
+            <button class="btn" style="background:transparent; border:2px solid white; color:white; border-radius:50px; margin-left:10px;" onclick="showTour()" data-i18n="watch_tour">WATCH TOUR</button>
+        </div>
+    </section>
+
+    <section class="stats-grid" style="background:var(--dark); display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); text-align:center;">
+        <div class="stat-item" data-aos="fade-up">
+            <h2 class="counter" data-target="500">0</h2>
+            <p style="color:white">HAPPY CLIENTS</p>
+        </div>
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+            <h2 class="counter" data-target="1250">0</h2>
+            <p style="color:white">PROJECTS COMPLETED</p>
+        </div>
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="counter" data-target="24">0</h2>
+            <p style="color:white">EXPERT SUPPORT (HRS)</p>
+        </div>
+         <div class="stat-item" data-aos="fade-up" data-aos-delay="60">
+            <h2 class="counter" data-target="98">0</h2>
+            <p style="color:white">SUCCESS RATE (%)</p>
+        </div>
+    </section>
+<section id="about" style="padding: 80px 5%; background: var(--light);">
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:50px; align-items:start;">
+        
+        <div data-aos="fade-right">
+            <h2 class="section-title" style="text-align:left; margin-bottom: 20px;">About Us</h2>
+            <div style="margin-bottom:15px; font-size:1rem; line-height:1.6; color:#444;">
+              
+                <p>We are dedicated to delivering excellence and innovation. Our portfolio showcases a journey of creativity and technical precision.</p>
+            </div>
+        </div>
+
+        <div data-aos="zoom-in" style="position:relative;">
+            <div class="slideshow-container">
+                
+<div class="mySlides fade">
+  <img src="about1.jpg" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="about2.jpg" style="width:100%">
+</div>
+<div class="mySlides fade">
+  <img src="about3.jpg" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="about4.jpg" style="width:100%">
+</div>
+<div class="mySlides fade">
+  <img src="about5.jpg" style="width:100%">
+</div>
+
+<div class="mySlides fade">
+  <img src="about6.jpg" style="width:100%">
+</div>
+<div class="mySlides fade">
+  <img src="about7.jpg" style="width:100%">
+</div>
+
+                <div style="position:absolute; bottom:15px; width:100%; text-align:center; z-index: 10;">
+                    <span class="dot"></span> 
+                    <span class="dot"></span> 
+                    <span class="dot"></span> 
+                    <span class="dot"></span> 
+                    <span class="dot"></span> 
+                    <span class="dot"></span> 
+                    <span class="dot"></span> 
+                </div>
+            </div>
+            
+            <div style="position:absolute; bottom:-15px; right:-15px; background:var(--secondary); padding:12px 20px; border-radius:10px; font-weight:bold; color:var(--primary); box-shadow: 5px 5px 15px rgba(0,0,0,0.1); z-index:15;">
+                Our Portfolio
+            </div>
+        </div>
+    </div>
+</section>
+<div style="margin-bottom: 40px;">
+</div>
+         <p style="margin-bottom:25px; font-size:1.0rem; line-height:1.6; color:#444;">
+                Krem Elohim Stationery and Digital Services emerged from a simple need in Bugema: <strong>Reliability.</strong> We realized that quality printing and digital engineering shouldn't be a luxury—it should be a standard.
+            </p>
+            <p style="margin-bottom:25px; font-size:1.0rem; line-height:1.6; color:#444;">
+                From the first receipt book printed to the complex web systems we build today, our focus remains on precision. We don't just deliver products; we build the technical infrastructure that helps local businesses and students grow.
+            </p>
+            
+            <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px; margin-top:30px;">
+                <div class="pillar-box">
+                    <h4 style="color:var(--primary); margin-bottom:5px;"><i class="fas fa-eye"></i> Our Vision</h4>
+                    <p style="font-size:0.99rem; line-height:1.4;">To be the technical pulse of Bugema, setting the standard for digital and print resolution across the region.</p>
+                </div>
+                <div class="pillar-box">
+                    <h4 style="color:var(--primary); margin-bottom:5px;"><i class="fas fa-bullseye"></i> Our Mission</h4>
+                    <p style="font-size:0.99rem; line-height:1.4;">To provide precise, high-speed branding and IT solutions that bridge the gap between ideas and reality.</p>
+                </div>
+            </div>
+        </div>
+
+        <div data-aos="zoom-in">
+            <div style="position:relative; margin-bottom:30px;">
+                <img src="about-us.jpg" alt="Our Workspace" style="width:100%; border-radius:15px; box-shadow: 0 15px 35px rgba(0,0,0,0.15); border: 1px solid #ddd;" onerror="this.src='https://via.placeholder.com/800x600?text=Upload+Your+Office+Photo+Here'">
+                <div style="position:absolute; bottom:-15px; right:-15px; background:var(--secondary); padding:15px; border-radius:10px; font-weight:bold; color:var(--primary); box-shadow: 5px 5px 15px rgba(0,0,0,0.1);">
+                    Est. 2026
+                </div>
+            </div>
+
+            <h3 style="font-size:1.2rem; color:var(--primary); margin-bottom:15px;">Core Values</h3>
+            <ul style="list-style:none; padding:0; display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+                <li style="font-size:0.99rem; font-weight:600;"><i class="fas fa-shield-alt" style="color:var(--secondary);"></i> Uncompromising Integrity</li> 
+                  <li style="font-size:0.99rem; font-weight:600;"><i class="fas fa-hand shake" style="color:var(--secondary);"></i> Team Work</li>
+                     <li style="font-size:0.99rem; font-weight:600;"><i class="fas fa-ruler" style="color:var(--secondary);"></i> Ethics</li>
+                      <li style="font-size:0.99rem; font-weight:600;"><i class="fas fa-pen" style="color:var(--secondary);"></i> Quality </li>
+                <li style="font-size:0.99rem; font-weight:600;"><i class="fas fa-microscope" style="color:var(--secondary);"></i> Technical Precision</li>
+                <li style="font-size:0.99rem; font-weight:600;"><i class="fas fa-clock" style="color:var(--secondary);"></i> Efficiency First</li>
+                <li style="font-size:0.99rem; font-weight:600;"><i class="fas fa-users" style="color:var(--secondary);"></i> Community Growth</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section id="projects-showcase" style="padding: 60px 5%; background: #f4f4f4;">
+    <h2 class="section-title" style="text-align: center; color: #001f3f;">Recent Featured Works</h2>
+    <p style="text-align: center; margin-bottom: 40px; font-size: 0.9rem; opacity: 0.7;">
+        High-Resolution Solutions for Our Bugema & Global Clients
+    </p>
+    
+    <div id="dynamic-project-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+        </div>
+
+    <section id="tech" style="padding: 60px 0; background: var(--light);">
+    <h2 class="section-title" data-i18n="tech_title" style="text-align:center;">Modern Machinery & Technology</h2>
+    
+    <div style="margin-bottom: 30px; display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
+        <button class="filter-btn" onclick="filterTech('all')">All</button>
+        <button class="filter-btn" onclick="filterTech('print')">Print Tech</button>
+        <button class="filter-btn" onclick="filterTech('digital')">Digital Hub</button>
+        <button class="filter-btn" onclick="filterTech('photo')">Photo Shoot</button>
+        <button class="filter-btn" onclick="filterTech('surface')">Surface Branding</button>
+        <button class="filter-btn" onclick="filterTech('architect')">Architectural</button>
+    </div>
+
+    <div id="tech-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; padding: 0 5%;">
+        
+        <div class="tech-card print" data-aos="fade-up">
+            <img src="./printer.jpg" alt="Eco Solvent" style="width:100%; height:250px; object-fit:cover; display:block;">
+            <div style="padding:15px;">
+                <h3 style="font-size: 1.1rem; color: var(--primary);">Eco Solvent Printer</h3>
+                <p style="font-size: 0.85rem; opacity: 0.8;">High-res large format printing.</p>
+            </div>
+        </div>
+         <div class="tech-card print" data-aos="fade-up">
+            <img src="./digital.jpg" alt="Digital Hub" style="width:100%; height:250px; object-fit:cover; display:block;">
+            <div style="padding:15px;">
+                <h3 style="font-size: 1.1rem; color: var(--primary);">Digital Hub</h3>
+                <p style="font-size: 0.85rem; opacity: 0.8;">Internet, emailing, web and app design, marketing, advertising.</p>
+            </div>
+        </div>
+
+        <div class="tech-card photo" data-aos="fade-up">
+            <img src="./camera.jpg" alt="Camera" style="width:100%; height:250px; object-fit:cover; display:block;">
+            <div style="padding:15px;">
+                <h3 style="font-size: 1.1rem; color: var(--primary);">Krem 2026 Digital Camera</h3>
+                <p style="font-size: 0.85rem; opacity: 0.8;">Professional Passport & Studio Photos.</p>
+            </div>
+        </div>
+
+        <div class="tech-card surface" data-aos="fade-up">
+            <img src="./heatpress.jpg" alt="Heat Press" style="width:100%; height:250px; object-fit:cover; display:block;">
+            <div style="padding:15px;">
+                <h3 style="font-size: 1.1rem; color: var(--primary);">Krem 2026 Heat Press</h3>
+                <p style="font-size: 0.85rem; opacity: 0.8;">Branding on T-shirts, Mugs, & Plates.</p>
+            </div>
+        </div>
+
+<div class="tech-card architect" data-aos="fade-up">
+    <img src="plotter.jpg" alt="Plotter" style="width:100%; height:250px; object-fit:cover;">
+    <div style="padding:15px;">
+        <h3 style="font-size: 1.1rem; color: var(--primary);">Engineering Plotter</h3>
+        <p style="font-size: 0.85rem; opacity: 0.8;">3D and 2D Architectural Blueprints.</p>
+    </div>
+</div>
+
+    </div>
+</section>
+
+<section id="services" style="padding: 80px 0; background: #e0e0e0; position: relative;">
+    <h2 class="section-title" data-i18n="nav_services" style="text-align:center; margin-bottom: 50px; color: #333;">Our Services</h2>
+    
+    <div class="bulletin-grid">
+        <div class="bulletin-card" data-aos="rotate-in">
+            <div class="pin"></div>
+            <div class="card-header">
+        <img src="spiral.jpg" style="width:100%; height:150px; object-fit:cover; margin-bottom:15px; border:1px solid #eee;">STATIONERY EXPERTISE</div>
+            <ul class="bulletin-list">
+                <li><i class="fas fa-print"></i> High Volume Printing</li>
+                <li><i class="fas fa-book"></i> Hard & Spiral Binding</li>
+                <li><i class="fas fa-file-invoice"></i> Receipt & Invoice Books</li>
+                <li><i class="fas fa-id-card"></i> PVC Staff ID Cards</li>
+                <li><i class="fas fa-envelope-open-text"></i> Company Letterheads</li>
+            </ul>
+            <div class="stat-tag">98% SPEED</div>
+        </div>
+
+       <div class="bulletin-card" data-aos="rotate-in" style="transform: rotate(1deg);">
+    <div class="pin"></div>
+
+    <div class="card-header">
+        <img src="branding.jpg" style="width:100%; height:150px; object-fit:cover; margin-bottom:15px; border:1px solid #eee;">
+        CORPORATE BRANDING
+    </div>
+
+    <ul class="bulletin-list">
+        <li><i class="fas fa-tshirt"></i> Branded T-Shirts & Hoodies</li>
+        <li><i class="fas fa-ad"></i> Roll-up & Teardrop Banners</li>
+        <li><i class="fas fa-coffee"></i> Promotional Mugs & Bottles</li>
+        <li><i class="fas fa-tags"></i> Product Labels & Stickers</li>
+        <li><i class="fas fa-briefcase"></i> Presentation Folders</li>
+    </ul>
+
+    <div class="stat-tag">PREMIUM FINISH</div>
+</div>
+
+        <div class="bulletin-card" data-aos="rotate-in" style="transform: rotate(-1deg);">
+            <div class="pin"></div>
+            <div class="card-header">
+        <img src="marketing.jpg" style="width:100%; height:150px; object-fit:cover; margin-bottom:15px; border:1px solid #eee;">DIGITAL ENGINEERING
+        </div>
+            <ul class="bulletin-list">
+                <li><i class="fas fa-code"></i> Modern Web Development</li>
+                <li><i class="fas fa-shopping-cart"></i> E-commerce Solutions</li>
+                <li><i class="fas fa-search-dollar"></i> SEO & Digital Marketing</li>
+                <li><i class="fas fa-server"></i> IT & Network Maintenance</li>
+                <li><i class="fas fa-bullhorn"></i> Social Media Management</li>
+            </ul>
+            <div class="stat-tag">95% ACCURACY</div>
+        </div>
+    </div>
+</section>
+
+    <section id="pricing" style="background:var(--light);">
+        <h2 class="section-title">Practical Pricing Guide</h2>
+        <div style="overflow-x:auto;">
+            <table class="price-table" style="background:white; border-radius:10px; overflow:hidden; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
+                <tr><th>Service</th><th>Unit</th><th>Price (UGX)</th><th>Action</th></tr>
+                <tr><td>Business Cards</td><td>100 Pcs</td><td>50,000</td><td><button onclick="addToCart('Business Cards', 50000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
+                <tr><td>Web Design</td><td>Standard</td><td>400,000</td><td><button onclick="addToCart('Web Design', 400000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
+                <tr><td>Logo Design</td><td>Professional</td><td>30,000</td><td><button onclick="addToCart('Logo Design', 30000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
+                <tr><td>Branded T-Shirt</td><td>1 Pc</td><td>25,000</td><td><button onclick="addToCart('Branded T-Shirt', 25000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
+            </table>
+        </div>
+        <div style="margin-top:30px; text-align:center;">
+            <button class="btn" style="padding:12px 25px; background:var(--primary); color:white; border-radius:5px;" onclick="downloadCatalog()">
+                <i class="fas fa-file-download"></i> DOWNLOAD FULL CATALOG
+            </button>
+        </div>
+    </section>
+    
+    <section style="background:white; text-align:center;">
+        <h2 class="section-title">Client Voices</h2>
+        <div id="testimonial-container" style="max-width:700px; margin:0 auto; padding:20px; background:var(--light); border-radius:20px;">
+            <div id="testimonial-content">
+                <div class="stars" style="font-size:1.5rem; margin-bottom:15px;">⭐⭐⭐⭐⭐</div>
+                <p style="font-size:1.2rem; font-style:italic;" id="test-text">"Best digital hub in Bugema. Fast and professional!"</p>
+                <h4 style="margin-top:20px;" id="test-author">- Brian K., Mbale</h4>
+            </div>
+        </div>
+    </section>
+</section>
+    <section id="contact-page" style="padding: 60px 0;">
+    <h2 class="section-title" data-i18n="nav_contact" style="text-align:center;">Get In Touch</h2>
+    
+    <form action="https://formspree.io/f/mykljyqk" method="POST" class="contact-form" data-aos="fade-up" id="my-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <input type="text" name="subject" placeholder="Subject" style="grid-column: span 1;">
+        <textarea name="message" placeholder="Tell us about your project..." required></textarea>
+        
+        <button type="submit" class="btn" style="background:var(--primary); color:white; grid-column: span 1; display:flex; justify-content: center; align-items:center; cursor:pointer;">
+            <i class="fas fa-paper-plane" style="margin-right:10px;"></i> SEND MESSAGE
+        </button>
+        
+        <p id="my-form-status" style="text-align:center; margin-top:15px; font-size:0.8rem;"></p>
+    </form>
+
+    <section id="location">
+        <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap:30px; align-items:center;">
+            <div data-aos="fade-right">
+                <h2 class="section-title" style="text-align:left;" data-i18n="loc_title">Visit Our Bugema shop</h2>
+                <p style="font-size: 0.85rem;" data-i18n="loc_desc">Located in the heart of Mbale City in Bugema. We are your number one centre for stationery and digital services.</p>
+                <div style="margin:15px 0; padding:15px; background:var(--light); border-left:4px solid var(--primary); font-size: 0.8rem;">
+                    <p><strong><i class="fas fa-map-marker-alt"></i> <span data-i18n="l_gps">GPS:</span></strong> 1.0543° N, 34.1804° E</p>
+                    <p><strong><i class="fas fa-clock"></i> <span data-i18n="l_hours">Hours:</span></strong> 8:00 AM - 9:00 PM</p>
+                </div>
+                <a href="#" class="btn" style="color:var(--primary); padding:0;"><i class="fas fa-directions"></i> <span data-i18n="directions">GET DIRECTIONS</span></a>
+            </div>
+            <div style="border-radius:15px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.1);" data-aos="zoom-in">
+              <iframe 
+src="https://www.google.com/maps?q=1.0543,34.1804&hl=en&z=14&output=embed" 
+width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy">
+</iframe>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: var(--dark); color: white; padding: 40px 8% 20px;">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:30px;">
+            <div>
+                <h3 style="font-size: 1.1rem;">KREM ELOHIM</h3>
+                <p style="font-size:0.75rem; margin-top:10px; opacity:0.7;" data-i18n="foot_desc">Leading the digital revolution in Bugema with integrity and high-resolution quality.</p>
+                <div style="margin-top:15px; display:flex; gap:12px; font-size:1.2rem;" class="footer-socials">
+    <a href="https://www.facebook.com/KremElohim" target="_blank" title="Facebook">
+        <i class="fab fa-facebook"></i>
+    </a>
+
+    <a href="https://wa.me/256773353091" target="_blank" title="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <a href="https://www.linkedin.com/in/khaukha-emmanuel-k-rwebt" target="_blank" title="LinkedIn">
+        <i class="fab fa-linkedin"></i>
+    </a>
+</div>
+            </div>
+            <div>
+<h3 style="font-size: 1rem;" data-i18n="quick_links">Quick Links</h3>
+<div class="footer-links" style="font-size: 0.8rem; opacity: 0.8;">
+    
+    <a href="https://wa.me/256773353091?text=Hello%20Krem%20Elohim,%20I'd%20like%20to%20check%20my%20order%20status" 
+       target="_blank" data-i18n="f_status">Order Status</a>
+    
+    <a href="#faq" data-i18n="f_faq">FAQ</a>
+    
+    <a href="#dynamic-project-grid" data-i18n="f_cat">Catalog</a>
+
+<div id="contact">
+    <h3 style="font-size: 1rem;" data-i18n="contact_hub">Contact Hub</h3>
+    <div class="contact-links" style="font-size: 0.8rem; opacity: 0.8; line-height: 2;">
+        <p>
+            <a href="tel:+256773353091">
+                <i class="fas fa-phone"></i> 0773 353 091
+            </a>
+        </p>
+        
+        <p>
+            <a href="https://wa.me/256773353091" target="_blank">
+                <i class="fab fa-whatsapp"></i> 0773 353 091
+            </a>
+        </p>
+        
+        <p>
+            <a href="mailto:Khaukhaemmanuelll20@gmail.com">
+                <i class="fas fa-envelope"></i> Khaukhaemmanuelll20@gmail.com
+            </a>
+        </p>
+    </div>
+</div>
+            </div>
+        </div>
+
+<div style="text-align:center; margin-top:30px; padding-top:20px; border-top:1px solid rgba(255,255,255,0.1);">
+    <p style="margin-bottom:15px; opacity:0.6; font-size: 0.9rem;" data-i18n="payments">Secure Payments Via:</p>
+    
+    <div class="payment-container" style="display:flex; gap:25px; justify-content:center; align-items:center; flex-wrap: wrap;">
+        
+        <div class="pay-method" onclick="copyPayment('3205152077', 'Visa (Khaukha Emmanuel)')" title="Copy Visa Account">
+            <i class="fab fa-cc-visa"></i>
+        </div>
+
+        <div class="pay-method" onclick="copyPayment('3205152077', 'Mastercard (Khaukha Emmanuel)')" title="Copy Mastercard Details">
+            <i class="fab fa-cc-mastercard"></i>
+        </div>
+
+        <div class="pay-method" onclick="copyPayment('0773353091', 'MTN Mobile Money')" title="MTN: 0773353091">
+            <i class="fas fa-mobile-alt mtn-icon"></i>
+            <span class="pay-label">MTN</span>
+        </div>
+
+        <div class="pay-method" onclick="copyPayment('0705074133', 'Airtel Money')" title="Airtel: 0705074133">
+            <i class="fas fa-mobile-alt airtel-icon"></i>
+            <span class="pay-label">Airtel</span>
+        </div>
+
+    </div>
+    <div id="copy-msg" style="font-size: 0.75rem; color: #FFD700; margin-top: 15px; height: 12px; font-weight: 500;"></div>
+</div>
+
+        <div style="display:flex; justify-content:space-between; margin-top:30px; font-size:0.75rem; opacity:0.6;">
+            <span>© <span id="year"></span> KREM ELOHIM. <span data-i18n="footer_motto">We Serve With Integrity.</span></span>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/256773353091" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="#" class="back-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+
+    <div id="toast" style="position:fixed; bottom:30px; left:30px; background:var(--dark); color:white; padding:15px 25px; border-radius:10px; display:none; z-index:9999; box-shadow:0 10px 30px rgba(0,0,0,0.3);"></div>
+
+    <div class="cookie-banner" id="cookieBanner">This site uses cookies for the best experience in Bugema. <button style="background:var(--secondary); border:none; color:white; padding:5px 15px; border-radius:5px; margin-left:10px; cursor:pointer;" onclick="closeCookies()">Accept</button></div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, once: true });
+        const translations = {
+            en: {
+                nav_home: "Home", nav_about: "About Us", nav_services: "Services", nav_pricing: "Pricing", nav_testimonials: "Reviews", nav_contact: "Contact", nav_location: "Location",
+                hero_title: "STATIONERY & DIGITAL SOLUTIONS", hero_sub: "WE SERVE WITH INTEGRITY & RESOLUTION", start_order: "START YOUR ORDER", watch_tour: "WATCH TOUR",
+                brand_sub: "AND DIGITAL SERVICES", search_sub: "Press Enter to search the Bugema Digital shop",
+                about_title: "About Krem Elohim", about_p1: "Krem Elohim Stationery and Digital Services is Bugema's premier destination...", about_p2: "With a focus on integrity and resolution...",
+                
+                stat_clients: "HAPPY CLIENTS", stat_projects: "PROJECTS COMPLETED", stat_support: "EXPERT SUPPORT (HRS)",
+                
+                s_stat_title: "Stationery Expertise", s_digi_title: "Digital Solutions", s_high: "High Volume Printing", s_bind: "Binding & Lamination", s_books: "Receipt Books", s_web: "Modern Web Design", s_soc: "Social Media Marketing", s_it: "IT Maintenance", s_speed: "Fulfillment Speed:", s_acc: "Technical Accuracy:",
+                loc_title: "Visit Our Bugema shop", loc_desc: "Located in the heart of Mbale City, Bugema.", directions: "GET DIRECTIONS", l_gps: "GPS:", l_hours: "Hours:",
+                foot_desc: "Leading the digital revolution in Bugema with integrity and high-resolution quality.", quick_links: "Quick Links", contact_hub: "Contact Hub", f_status: "Order Status", f_faq: "FAQ", f_cat: "Catalog", payments: "Secure Payments Via:", footer_motto: "We Serve With Integrity.", footer_made: "", cookie_text: "This site uses cookies for the best experience in Bugema.", accept: "Accept"
+            },
+            lg: {
+                nav_home: "Awaka", nav_about: "Ebitukwatako", nav_services: "Empeereza", nav_pricing: "Ebeeyi", nav_testimonials: "Ebitwogerwako", nav_contact: "Tutuukirire", nav_location: "Wetusangibwa",
+                hero_title: "EBIPAPULA NE BYUMA BYA DIGITAL", hero_sub: "TUWEEREZA NA BWESIGWA NE KIRUBIRIRWA", start_order: "TANDIKA OKU-ODA", watch_tour: "LABA TOUR",
+                brand_sub: "NE MPEEREZA ZA DIGITAL", search_sub: "Nyiga Enter okunoonya mu dduuka lya Bugema Digital", 
+                about_title: "Ebitukwatako Krem Elohim", about_p1: "Krem Elohim Stationery and Digital Services ffe ssentala y'ebipapula esinga e Bugema...",
+                stat_clients: "ABAKASITO ABAFUMU", stat_projects: "EMIRIMU EMIGGWEEFU", stat_support: "OBUYAMBI (ESSAAWA)",
+                tech_title: "Ebyuma ne Tekinologiya ow'Omulembe", btn_all: "Byonna", btn_print: "Byuma by'Okukuba", btn_digital: "Ebyuma bya Digital",
+                pricing_title: "Olukalala lwebeeyi", th_service: "Empeereza", th_unit: "Unit", th_price: "Ebeeyi (UGX)", th_action: "Kola", add: "Gatta", download_cat: "DOWNLOAD OLUKALALA LWONNA",
+                loc_title: "Kyala mu dduuka lyaffe e Bugema", loc_desc: "Tusangibwa mu makkati ga Mbale City, Bugema.", directions: "LABA EKKUBO", l_gps: "GPS:", l_hours: "Essaawa:",
+                foot_desc: "Tukulembedde enkyukakyuka ya digital mu Bugema n'obwesigwa.", quick_links: "Ennyunzi Ennyangu", contact_hub: "Ssentala y'Okutuukirira", f_status: "Mbeera y'oda", f_faq: "FAQ", f_cat: "Olukalala", payments: "Sasula N'ezino:", footer_motto: "Tuweereza n'Obwesigwa.", footer_made: "Kyakolebwa n'okwagala mu Mbale", cookie_text: "Omukutu guno gukozesa cookies.", accept: "Kkiriza"
+            },
+            sw: {
+                nav_home: "Nyumbani", nav_about: "Kuhusu Sisi", nav_services: "Huduma", nav_pricing: "Bei", nav_testimonials: "Maoni", nav_contact: "Wasiliana", nav_location: "Mahali",
+                hero_title: "VIFAA VYA OFISI NA KIDIGITALI", hero_sub: "TUNATUMIKIA KWA UAMINIFU NA AZIMIO", start_order: "ANZA AGIZO LAKO", watch_tour: "TAZAMA UTALII",
+                brand_sub: "NA HUDUMA ZA KIDIGITALI", search_sub: "Bonyeza Enter kutafuta duka la Bugema Digital", 
+            },
+            fr: { nav_home: "Accueil", nav_about: "À Propos", nav_services: "Services", nav_pricing: "Prix", nav_testimonials: "Avis", nav_contact: "Contact", nav_location: "Emplacement", hero_title: "SOLUTIONS DE PAPETERIE ET NUMÉRIQUE", hero_sub: "NOUS SERVONS AVEC INTÉGRITÉ",  },
+            ar: { nav_home: "الرئيسية", nav_about: "معلومات عنا", nav_services: "خدمات", nav_pricing: "التسعير", nav_location: "موقع", hero_title: "حلول القرطاسية والرقمية", hero_sub: "نحن نخدم بنزاهة وقرار", total: "المجموع:", order_btn: "اطلب عبر واتساب" },
+            zh: { nav_home: "首页", nav_about: "关于我们", nav_services: "服务", nav_tech: "技术", nav_pricing: "价格", nav_location: "地点", hero_title: "文具和数字解决方案", hero_sub: "我们诚信服务", total: "总计:", order_btn: "通过 WhatsApp 订购" },
+            hi: { nav_home: "होम", nav_about: "हमारे बारे में", nav_services: "सेवाएं", nav_tech: "तकनीकी", nav_pricing: "मूल्य निर्धारण", nav_location: "स्थान", hero_title: "स्टेशनरी और डिजिटल समाधान", total: "कुल:", order_btn: "व्हाट्सएप के माध्यम से ऑर्डर करें" },
+            es: { nav_home: "Inicio", nav_about: "Nosotros", nav_services: "Servicios", nav_tech: "Tecnología", nav_pricing: "Precios", nav_location: "Ubicación", hero_title: "SOLUTIONS DIGITALES", total: "Total:", order_btn: "PEDIR POR WHATSAPP" }
+        };
+        
+        function changeLanguage(lang) {
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerText = translations[lang][key];
+                } else if (translations['en'][key]) {
+                    el.innerText = translations['en'][key];
+                }
+            });
+            document.documentElement.lang = lang;
+            showToast(`Language: ${lang.toUpperCase()}`);
+        }
+        function startCounters() {
+            const counters = document.querySelectorAll('.counter');
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-target');
+                const count = +counter.innerText;
+                const inc = target / 100;
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + inc);
+                    setTimeout(startCounters, 50);
+                } else { counter.innerText = target; }
+            });
+        }
+        document.getElementById('year').innerText = new Date().getFullYear();
+
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("myBar").style.width = scrolled + "%";
+            
+            let btt = document.getElementById("backToTop");
+            if (winScroll > 500) { btt.style.opacity = "1"; } else { btt.style.opacity = "0"; }
+
+            if (winScroll > 300) { startCounters(); }
+        };
+        // Scroll Logic
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("myBar").style.width = scrolled + "%";
+            function showToast(msg) {
+            const toast = document.getElementById('toast');
+            toast.innerText = msg;
+            toast.style.display = 'block';
+            setTimeout(() => { toast.style.display = 'none'; }, 3000);
+        }
+
+        function closeCookies() { document.getElementById('cookieBanner').style.display = 'none'; }
+        
+        function filterTech(category) {
+            const cards = document.querySelectorAll('#tech-grid .card');
+            cards.forEach(card => {
+                if(category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+        function sendMessage() {
+    const name = document.querySelector('input[placeholder="Your Name"]').value;
+    const email = document.querySelector('input[type="email"]').value;
+    const msg = document.querySelector('textarea').value;
+
+    window.location.href = `mailto:kremelohim@digital.com?subject=New Message&body=Name: ${name}%0AEmail: ${email}%0A${msg}`;
+}
+function changeHeroBackground(url) {
+    document.documentElement.style.setProperty('--hero-bg', `url('${url}')`);
+}
+changeHeroBackground('background.jpg');
+function toggleMenu() {
+    const nav = document.getElementById('main-nav');
+    const icon = document.getElementById('menu-icon');
+    
+    // Toggle the 'active' class on the menu
+    nav.classList.toggle('active');
+    
+    // Switch between the bars icon and the X icon
+    if (nav.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+    } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+    }
+    
+    // Toggle the 'active' class on the menu
+    nav.classList.toggle('active');
+    
+    // Switch between the bars icon and the X icon
+    if (nav.classList.contains('active')) {
+        icon.classList.remove('fa-bars');
+        icon.classList.add('fa-times');
+    } else {
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+    }
+}
+
+// Close menu when a link is clicked (UX Improvement)
+document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+        document.getElementById('main-nav').classList.remove('active');
+        document.getElementById('menu-icon').classList.add('fa-bars');
+        document.getElementById('menu-icon').classList.remove('fa-times');
+    });
+});
+function showTour() {
+    // Replace with your actual YouTube video link
+    const tourVideoUrl = "https://www.youtube.com/watch?v=YOUR_VIDEO_ID";
+    window.open(tourVideoUrl, '_blank');
+}
+
+function showTour() {
+    showToast("Starting quick tour...");
+    
+    const sections = ['#about', '#tech', '#pricing', '#services', '#location'];
+    let delay = 0;
+
+    sections.forEach((section, index) => {
+        setTimeout(() => {
+            const el = document.querySelector(section);
+            if(el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+                // Highlight the section temporarily
+                el.style.outline = "2px solid var(--secondary)";
+                setTimeout(() => el.style.outline = "none", 2000);
+            }
+        }, delay);
+        delay += 2500; // Wait 2.5 seconds at each section
+    });
+}        
+            // Back to top visibility
+            let btt = document.getElementById("backToTop");
+            if (winScroll > 500) { btt.style.opacity = "1"; } else { btt.style.opacity = "0"; }
+
+            // Trigger Counters
+            if (winScroll > 300) { startCounters(); }
+            
+            // Trigger Skills
+            if (winScroll > 2200) { startSkills(); }
+        };
+
+        // Dark Mode
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.getElementById('theme-icon');
+            if(document.body.classList.contains('dark-mode')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+        }
+
+        // Cart Logic
+        let cart = [];
+        function addToCart(name, price) {
+            cart.push({name, price});
+            updateCartUI();
+            showToast(`Added ${name} to basket!`);
+        }
+
+        function updateCartUI() {
+            const list = document.getElementById('cart-items-list');
+            const badge = document.getElementById('cart-badge');
+            const totalEl = document.getElementById('cart-total');
+            
+            if(cart.length === 0) {
+                list.innerHTML = "Your basket is empty.";
+                badge.innerText = "0";
+                totalEl.innerText = "0";
+                return;
+            }
+
+            badge.innerText = cart.length;
+            let total = 0;
+            list.innerHTML = cart.map((item, index) => {
+                total += item.price;
+                return `<div class="cart-item">
+                    <span>${item.name}</span>
+                    <b>${item.price.toLocaleString()}</b>
+                    <i class="fas fa-trash" style="color:red; cursor:pointer" onclick="removeFromCart(${index})"></i>
+                </div>`;
+            }).join('');
+            totalEl.innerText = total.toLocaleString();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function toggleCart() { document.getElementById('cart-panel').classList.toggle('active'); }
+        function toggleSearch() { document.getElementById('search-overlay').classList.toggle('active'); }
+
+        function checkoutWhatsApp() {
+            if(cart.length === 0) return showToast("Cart is empty!");
+            let message = "Hello Krem Elohim! I'd like to order:%0A" + cart.map(i => `- ${i.name} (${i.price} UGX)`).join('%0A');
+            window.open(`https://wa.me/256773353091?text=${message}`, '_blank');
+        }
+
+        // Stats Counter
+        let counterStarted = false;
+        function startCounters() {
+            if(counterStarted) return;
+            document.querySelectorAll('.counter').forEach(counter => {
+                let target = +counter.getAttribute('data-target');
+                let count = 0;
+                let inc = target / 100;
+                let update = setInterval(() => {
+                    count += inc;
+                    if(count >= target) {
+                        counter.innerText = target + "+";
+                        clearInterval(update);
+                    } else {
+                        counter.innerText = Math.ceil(count);
+                    }
+                }, 20);
+            });
+            counterStarted = true;
+        }
+
+        // Skill Bars
+        function startSkills() {
+            document.querySelectorAll('.skill-fill').forEach(bar => {
+                bar.style.width = bar.getAttribute('data-width');
+            });
+        }
+
+        // Toast
+        function showToast(msg) {
+            let t = document.getElementById('toast');
+            t.innerText = msg;
+            t.style.display = 'block';
+            setTimeout(() => { t.style.display = 'none'; }, 3000);
+        }
+
+        // Filter Tech
+        function filterTech(cat) {
+            document.querySelectorAll('.card').forEach(card => {
+                if(cat === 'all') card.style.display = 'block';
+                else if(card.classList.contains(cat)) card.style.display = 'block';
+                else card.style.display = 'none';
+            });
+        }
+
+        // Testimonial Rotator
+        const reviews = [
+            { text: '"Best digital hub in Bugema. Fast and professional!"', author: "- Brian K., Mbale" },
+            { text: '"The branded shirts were top quality. Highly recommended."', author: "- Sarah M., Jinja" },
+            { text: '"Affordable web design for my startup. Very impressed."', author: "- Moses T., Kampala" }
+        ];
+        let currentRev = 0;
+        setInterval(() => {
+            currentRev = (currentRev + 1) % reviews.length;
+            document.getElementById('test-text').innerText = reviews[currentRev].text;
+            document.getElementById('test-author').innerText = reviews[currentRev].author;
+        }, 5000);
+
+        function closeCookies() { document.getElementById('cookieBanner').style.display = 'none'; }
+        function downloadCatalog() { showToast("Preparing Catalog Download..."); }
+        function showTour() { showToast("Loading Virtual Tour..."); }
+        
+        document.getElementById("year").innerHTML = new Date().getFullYear();
+function copyPayment(number, type) {
+    // Copies the number to user's clipboard
+    navigator.clipboard.writeText(number);
+    
+    // Shows a temporary message so they know it worked
+    const msg = document.getElementById('copy-msg');
+    msg.innerText = type + " Number Copied: " + number;
+    
+    // Clear message after 3 seconds
+    setTimeout(() => {
+        msg.innerText = "";
+    }, 3000);
+}
+async function handleSubmit(event) {
+    event.preventDefault();
+    var status = document.getElementById("my-form-status");
+    var data = new FormData(event.target);
+    
+    status.innerHTML = "Sending...";
+    
+    fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        if (response.ok) {
+            status.style.color = "#2ecc71"; // Success Green
+            status.innerHTML = "Thanks! Your message has been sent to Krem Elohim.";
+            form.reset();
+        } else {
+            response.json().then(data => {
+                if (Object.hasOwn(data, 'errors')) {
+                    status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                } else {
+                    status.style.color = "#e74c3c"; // Error Red
+                    status.innerHTML = "Oops! There was a problem submitting your form.";
+                }
+            })
+        }
+    }).catch(error => {
+        status.innerHTML = "Oops! There was a problem connecting to the server.";
+    });
+}
+form.addEventListener("submit", handleSubmit);
+// --- 1. PROJECT DATA STORAGE ---
+// Add your new projects here as you finish them!
+// --- 1. PROJECT DATA STORAGE ---
+// Add your new projects here as you finish them!
+const MY_PROJECTS = [
+    { title: "Official Receipt Books", client: "Bugema University", img: "project1.jpg" },
+    { title: "Automotive Branding", client: "Local Workshop", img: "project2.jpg" },
+    { title: "Digital UI Design", client: "Krem Elohim Tech", img: "project3.jpg" },
+    { title: "Latest Designs", client: "Krem Elohim Drug Shop", img: "project6.jpg" },
+    { title: "Trusted Customers", client: "Bugema Sacco", img: "project5.jpg" },
+    { title: "Web System", client: "Krem Elohim Tech", img: "project5.jpg" }
+];function initProjectModule() {
+    const grid = document.getElementById('dynamic-project-grid');
+    const counterDisplay = document.getElementById('project-count-number');
+    
+    // Check if the elements exist on the page first
+    if (!grid) return;
+    
+    if (counterDisplay) {
+        counterDisplay.innerText = totalCount;
+    }
+
+    // Build the grid HTML
+    grid.innerHTML = MY_PROJECTS.map(proj => `
+        <div class="project-card" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+            <div style="height: 220px; background: #eee;">
+                <img src="${proj.img}" alt="${proj.title}" 
+                     style="width: 100%; height: 100%; object-fit: cover;"
+                     onerror="this.src='https://via.placeholder.com/400x300/001f3f/FFD700?text=Krem+Elohim+Work'">
+            </div>
+            <div style="padding: 20px;">
+                <h3 style="font-size: 1.1rem; color: #001f3f; margin-bottom: 8px;">${proj.title}</h3>
+                <p style="font-size: 0.8rem; color: #666; margin: 0;">Client: ${proj.client}</p>
+            </div>
+        </div>
+    `).join('');
+}
+
+// --- 3. EXECUTION ---
+// This ensures the code runs after the website loads
+window.addEventListener('load', initProjectModule);
+function filterTech(category) {
+    const cards = document.querySelectorAll('.tech-card');
+    const buttons = document.querySelectorAll('.filter-btn');
+
+    // 1. Logic to show/hide cards
+    cards.forEach(card => {
+        if (category === 'all') {
+            card.style.display = "block";
+        } else if (card.classList.contains(category)) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+
+    // 2. Active button styling
+    buttons.forEach(btn => {
+        btn.style.background = "#ddd"; // Reset others to grey
+        btn.style.color = "#333";
+        if (btn.innerText.toLowerCase().includes(category) || (category === 'all' && btn.innerText === 'All')) {
+            btn.style.background = "var(--primary)";
+            btn.style.color = "white";
+        }
+    });
+}
+
+function updateProgressBar() {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById("scroll-progress-bar").style.width = scrolled + "%";
+}
+window.onscroll = function() {
+    updateProgressBar();
+};function updateProgressBar() {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById("scroll-progress-bar").style.width = scrolled + "%";
+}
+const buttons = document.querySelectorAll('.filter-btn, .add-btn');
+
+buttons.forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+        const position = btn.getBoundingClientRect();
+        const x = e.pageX - position.left - position.width / 2;
+        const y = e.pageY - position.top - position.height / 2;
+        
+        btn.style.transform = `translate(${x * 0.3}px, ${y * 0.5}px)`;
+    });
+
+    btn.addEventListener('mouseout', () => {
+        btn.style.transform = 'translate(0px, 0px)';
+    });
+});
+function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    const menuIcon = document.getElementById('menu-icon');
+    
+    // Toggle the display of the menu
+    navLinks.classList.toggle('active');
+    
+    // Optional: Change the icon from "bars" to an "X" when open
+    if (navLinks.classList.contains('active')) {
+        menuIcon.classList.remove('fa-bars');
+        menuIcon.classList.add('fa-times');
+    } else {
+        menuIcon.classList.remove('fa-times');
+        menuIcon.classList.add('fa-bars');
+    }
+}
+    </script>
+    <script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+
+  slideIndex++;
+  if (slideIndex > slides.length) { slideIndex = 1 }
+
+  for (let i = 0; i < dots.length; i++) {
+    dots[i].classList.remove("active");
+  }
+
+  slides[slideIndex - 1].style.display = "block";  
+  dots[slideIndex - 1].classList.add("active");
+
+  setTimeout(showSlides, 3000); // change every 3 seconds
+}
+// Add this at the top of your script
+const form = document.getElementById('your-container-id');
+let interval;
+
+function startSlides() {
+  interval = setInterval(showSlides, 3000);
+}
+
+function stopSlides() {
+  clearInterval(interval);
+}
+
+document.querySelector(".slideshow-container").addEventListener("mouseover", stopSlides);
+document.querySelector(".slideshow-container").addEventListener("mouseout", startSlides);
+
+startSlides();
+dots.forEach((dot, index) => {
+  dot.addEventListener("click", () => {
+    slideIndex = index - 1; 
+    showSlides();
+  });
+});
+
+</script>
+
+</body>
+</html>
