@@ -1705,15 +1705,23 @@ function sendToWhatsApp() {
     const fileInput = document.getElementById('fileInput');
     let fileName = fileInput.files.length > 0 ? fileInput.files[0].name : "No file attached";
 
-    let itemString = items.map(item => `- ${item.description}: ${item.price.toLocaleString()} UGX`).join('%0A');
+    // 1. Create the item list string with clean line breaks
+    let itemDetails = "";
+    items.forEach((item, index) => {
+        itemDetails += `${index + 1}. ${item.description}: ${item.price.toLocaleString()} UGX\n`;
+    });
 
-    const message = `Hello, I'd like to place an order for:%0A%0A` +
-                    `${itemString}%0A%0A` +
-                    `*Grand Total:* UGX ${total}%0A` +
-                    `*Attached File:* ${fileName}%0A%0A` +
-                    `Please let me know how to proceed.`;
+    // 2. Build the full text message
+    const messageBody = `Hello, I'd like to place an order for:\n\n` +
+                        `${itemDetails}\n` +
+                        `*Grand Total:* UGX ${total}\n` +
+                        `*Attached File:* ${fileName}\n\n` +
+                        `Please let me know how to proceed.`;
 
-    window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+    // 3. Use encodeURIComponent to make sure the WHOLE list is included in the link
+    const encodedMessage = encodeURIComponent(messageBody);
+
+    window.open(`https://wa.me/${phone}?text=${encodedMessage}`, '_blank');
 }
 </script>
 <p></p>
