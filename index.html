@@ -2440,7 +2440,54 @@ dots.forEach((dot, index) => {
     showSlides();
   });
 });
+</script>
+<div class="calc-group">
+    <label>Upload Your Design (PDF/Image)</label>
+    <input type="file" id="fileInput" accept="image/*,.pdf" onchange="updateFileStatus()">
+    <div id="uploadStatus" style="font-size: 13px; margin-top: 5px; color: #ffd700; font-weight: bold;"></div>
+</div>
 
+<button class="wa-btn" onclick="sendToWhatsApp()" style="width:100%; padding:15px; background:#25D366; color:white; border:none; border-radius:5px; font-weight:bold; cursor:pointer; font-size:16px;">
+    <i class="fab fa-whatsapp"></i> SEND ORDER VIA WHATSAPP
+</button>
+
+<script>
+function updateFileStatus() {
+    const fileInput = document.getElementById('fileInput');
+    const status = document.getElementById('uploadStatus');
+    if (fileInput.files.length > 0) {
+        status.innerText = "📄 Selected: " + fileInput.files[0].name;
+        status.style.color = "#25D366"; // Changes to green when file is picked
+    }
+}
+
+function sendToWhatsApp() {
+    const phone = "256773353092"; 
+    const service = document.getElementById('serviceType').options[document.getElementById('serviceType').selectedIndex].text;
+    const qty = document.getElementById('quantity').value;
+    const finish = document.getElementById('finishing').options[document.getElementById('finishing').selectedIndex].text;
+    const total = document.getElementById('totalDisplay').innerText;
+    const fileInput = document.getElementById('fileInput');
+    
+    let fileInfo = "";
+    if (fileInput.files.length > 0) {
+        fileInfo = `*Attached File:* ${fileInput.files[0].name}%0A(I will attach this file manually in the next step)%0A`;
+        // Alert the user so they aren't confused why the file isn't there
+        alert("WhatsApp is opening! Please remember to click the 'Paperclip' icon in WhatsApp to attach your file: " + fileInput.files[0].name);
+    } else {
+        fileInfo = `*Attached File:* No file selected%0A`;
+    }
+
+    const message = `Hello, I'd like to place an order:%0A%0A` +
+                    `*Service:* ${service}%0A` +
+                    `*Quantity:* ${qty}%0A` +
+                    `*Finishing:* ${finish}%0A` +
+                    `${fileInfo}` +
+                    `*Total Estimate:* UGX ${total}%0A%0A` +
+                    `Please confirm if I can send the document now.`;
+
+    window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+}
 </script>
 </body>
 </html>
