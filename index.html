@@ -940,6 +940,166 @@ section {
   background: var(--accent);
   color: black;
 }
+#toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1000;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#toast.show {
+    visibility: visible;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+@keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+@keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+.calculator-container {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    max-width: 450px;
+    margin: 20px auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    border: 1px solid #333;
+}
+
+.calc-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.calc-group label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #aaa;
+}
+
+.calc-group input, .calc-group select {
+    width: 100%;
+    padding: 12px;
+    background: #252525;
+    border: 1px solid #444;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+}
+
+.calc-result {
+    background: #ffd700;
+    color: #000;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.calc-result span {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.wa-btn {
+    width: 100%;
+    background: #25d366;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.wa-btn:hover { background: #128c7e; }
+.calculator-container {
+    background: var(--bg-card);
+    color: var(--text-bright);
+    padding: 30px;
+    border-radius: 20px;
+    max-width: 450px;
+    margin: 40px auto;
+    /* Blue glow effect */
+    box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2); 
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.calculator-container h3 {
+    color: var(--primary-blue);
+    margin-top: 0;
+    font-size: 24px;
+    text-align: center;
+}
+
+.calc-group label {
+    color: var(--text-dim);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.calc-group input, .calc-group select {
+    width: 100%;
+    padding: 12px;
+    background: #1d3359; /* Deeper blue for inputs */
+    border: 1px solid var(--primary-blue);
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    margin-top: 5px;
+    outline: none;
+}
+
+.calc-group input:focus {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+}
+
+.calc-result {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 25px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.calc-result span {
+    font-size: 32px;
+    font-weight: 800;
+}
+
+/* Make the WhatsApp button feel integrated but still green for recognition */
+.wa-btn {
+    width: 100%;
+    background: #25d366;
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    text-transform: uppercase;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.wa-btn:hover {
+    background: #1ebd5e;
+    transform: translateY(-2px);
+}
 
     </style>
 </head>
@@ -1062,24 +1222,6 @@ section {
         </div>
     </section>
 
-    <section class="stats-grid" style="background:var(--dark); display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); text-align:center;">
-        <div class="stat-item" data-aos="fade-up">
-            <h2 class="counter" data-target="500">0</h2>
-            <p style="color:white">HAPPY CLIENTS</p>
-        </div>
-        <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
-            <h2 class="counter" data-target="1250">0</h2>
-            <p style="color:white">PROJECTS COMPLETED</p>
-        </div>
-        <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
-            <h2 class="counter" data-target="24">0</h2>
-            <p style="color:white">EXPERT SUPPORT (HRS)</p>
-        </div>
-         <div class="stat-item" data-aos="fade-up" data-aos-delay="60">
-            <h2 class="counter" data-target="98">0</h2>
-            <p style="color:white">SUCCESS RATE (%)</p>
-        </div>
-    </section>
 <section id="about" style="padding: 80px 5%; background: var(--light);">
     <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:50px; align-items:start;">
         
@@ -1299,6 +1441,7 @@ section {
             <div class="stat-tag">95% ACCURACY</div>
         </div>
     </div>
+    
 </section>
 
     <section id="pricing" style="background:var(--light);">
@@ -1318,7 +1461,49 @@ section {
             </button>
         </div>
     </section>
-    
+    <div class="calculator-container">
+    <h3>🖩 Instant Price Estimator</h3>
+    <p>Get a quick quote and send it to us on WhatsApp!</p>
+
+    <div class="calc-group">
+        <label>Service Type</label>
+        <select id="serviceType" onchange="calculateTotal()">
+            <option value="100">Black & White Printing (100 UGX/pg)</option>
+            <option value="500">Full Color Printing (500 UGX/pg)</option>
+            <option value="1500">PVC ID Card (1,500 UGX/unit)</option>
+            <option value="5000">T-Shirt Branding (5,000 UGX/side)</option>
+        </select>
+    </div>
+
+    <div class="calc-group">
+        <label>Quantity / Number of Pages</label>
+        <input type="number" id="quantity" value="1" min="1" oninput="calculateTotal()">
+    </div>
+
+    <div class="calc-group">
+        <label>Add Finishing</label>
+        <select id="finishing" onchange="calculateTotal()">
+            <option value="0">None</option>
+            <option value="2000">Spiral Binding (+2,000 UGX)</option>
+            <option value="15000">Hard Cover Binding (+15,000 UGX)</option>
+            <option value="500">Lamination (+500 UGX)</option>
+        </select>
+    </div>
+
+    <div class="calc-result">
+        <h4>Estimated Total:</h4>
+        <span id="totalDisplay">0</span> <small>UGX</small>
+    </div>
+
+    <button class="wa-btn" onclick="sendToWhatsApp()">
+        Order via WhatsApp
+    </button>
+    <div class="calc-group">
+    <label>Upload Your Design (PDF/Image)</label>
+    <input type="file" id="fileInput" accept="image/*,.pdf">
+    <div id="uploadStatus" style="font-size: 12px; margin-top: 5px; color: #ffd700;"></div>
+</div>
+</div>
     <section style="background:white; text-align:center;">
         <h2 class="section-title">Client Voices</h2>
         <div id="testimonial-container" style="max-width:700px; margin:0 auto; padding:20px; background:var(--light); border-radius:20px;">
@@ -1866,6 +2051,23 @@ function filterTech(category) {
         }
     });
 }
+function showToast(message) {
+    const x = document.getElementById("toast");
+    x.innerText = message;
+    x.className = "show";
+    setTimeout(() => { x.className = x.className.replace("show", ""); }, 3000);
+}
+function generateWAOrder() {
+    let message = "📦 *NEW ORDER - KREM ELOHIM*%0A";
+    basket.forEach(item => message += `- ${item.name}: ${item.price} UGX%0A`);
+    window.open(`https://wa.me/256773353091?text=${message}`);
+}
+function calculatePrint() {
+    const pages = document.getElementById('pages').value;
+    const type = document.querySelector('input[name="color"]:checked').value;
+    let total = pages * (type === 'color' ? 500 : 100);
+    document.getElementById('result').innerText = total + " UGX";
+}
 
 function updateProgressBar() {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -1912,6 +2114,62 @@ function toggleMenu() {
         menuIcon.classList.add('fa-bars');
     }
 }
+function calculateTotal() {
+    const rate = parseInt(document.getElementById('serviceType').value);
+    const qty = parseInt(document.getElementById('quantity').value) || 0;
+    const extra = parseInt(document.getElementById('finishing').value);
+
+    const total = (rate * qty) + extra;
+
+    // Animate the number change for a "pro" feel
+    document.getElementById('totalDisplay').innerText = total.toLocaleString();
+}
+
+async function sendToWhatsApp() {
+    const fileInput = document.getElementById('fileInput');
+    const status = document.getElementById('uploadStatus');
+    let fileUrl = "No file uploaded";
+
+    if (fileInput.files.length > 0) {
+        status.innerText = "⏳ Uploading file... please wait.";
+        
+        const file = fileInput.files[0];
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('upload_preset', 'YOUR_UNSIGNED_PRESET'); // Replace this
+
+        try {
+            const response = await fetch('https://api.cloudinary.com/v1_1/YOUR_CLOUD_NAME/upload', {
+                method: 'POST',
+                body: formData
+            });
+            const data = await response.json();
+            fileUrl = data.secure_url;
+            status.innerText = "✅ Upload complete!";
+        } catch (error) {
+            status.innerText = "❌ Upload failed. Try sending on WhatsApp directly.";
+        }
+    }
+
+    // Now send the WhatsApp message
+    const service = document.getElementById('serviceType').options[document.getElementById('serviceType').selectedIndex].text;
+    const qty = document.getElementById('quantity').value;
+    const finishing = document.getElementById('finishing').options[document.getElementById('finishing').selectedIndex].text;
+    const total = document.getElementById('totalDisplay').innerText;
+
+    const message = `*NEW ORDER - KREM ELOHIM*%0A%0A` +
+        `*Service:* ${service}%0A` +
+        `*Quantity:* ${qty}%0A` +
+        `*Finishing:* ${finishing}%0A` +
+        `*Total:* ${total} UGX%0A` +
+        `*File Link:* ${fileUrl}%0A%0A` +
+        `Please confirm receipt of this order!`;
+
+    window.open(`https://wa.me/256773353091?text=${message}`, '_blank');
+}
+
+// Initialize on page load
+window.onload = calculateTotal;
     </script>
     <script>
 let slideIndex = 0;
@@ -1961,6 +2219,5 @@ dots.forEach((dot, index) => {
 });
 
 </script>
-
 </body>
 </html>
