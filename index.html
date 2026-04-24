@@ -2441,43 +2441,6 @@ dots.forEach((dot, index) => {
   });
 });
 
-<script>
-function calculateTotal() {
-    const servicePrice = parseFloat(document.getElementById('serviceType').value);
-    const quantity = parseFloat(document.getElementById('quantity').value) || 0;
-    const finishingPrice = parseFloat(document.getElementById('finishing').value);
-
-    const total = (servicePrice * quantity) + finishingPrice;
-    
-    // Updates the display with commas for readability (e.g., 50,000)
-    document.getElementById('totalDisplay').innerText = total.toLocaleString();
-}
-
-function sendToWhatsApp() {
-    const serviceSelect = document.getElementById('serviceType');
-    const serviceName = serviceSelect.options[serviceSelect.selectedIndex].text;
-    const quantity = document.getElementById('quantity').value;
-    const finishingSelect = document.getElementById('finishing');
-    const finishingName = finishingSelect.options[finishingSelect.selectedIndex].text;
-    const total = document.getElementById('totalDisplay').innerText;
-
-    // REPLACE THE NUMBER BELOW WITH YOUR ACTUAL WHATSAPP NUMBER
-    // Must be in international format without the "+" (e.g., 256700000000)
-    const phoneNumber = "256773353091"; 
-
-    const message = `Hello! I would like to place an order:%0A%0A` +
-                    `*Service:* ${serviceName}%0A` +
-                    `*Quantity:* ${quantity}%0A` +
-                    `*Finishing:* ${finishingName}%0A` +
-                    `*Total Estimate:* UGX ${total}`;
-
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
-    
-    window.open(whatsappURL, '_blank');
-}
-
-// Run once on load to set initial price
-calculateTotal();
 </script>
 </body>
 </html>
