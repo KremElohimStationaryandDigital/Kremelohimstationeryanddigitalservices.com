@@ -1162,7 +1162,14 @@ section {
 .item-card {
     flex: 1 1 300px; /* Grows to fill space, but won't shrink below 300px */
     max-width: 400px;
+}:root {
+    --navy: #001f3f;
+    --gold: #FFD700;
+    --white: #ffffff;
+    --light-gray: #f4f4f4;
+    --shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
+
     </style>
 </head>
 <body>
@@ -1385,7 +1392,7 @@ section {
             </ul>
         </div>
     </div>
-</section>
+
 <section id="projects-showcase" style="padding: 60px 5%; background: #f4f4f4;">
     <h2 class="section-title" style="text-align: center; color: #001f3f;">Recent Featured Works</h2>
     <p style="text-align: center; margin-bottom: 40px; font-size: 0.9rem; opacity: 0.7;">
@@ -1394,6 +1401,8 @@ section {
     
     <div id="dynamic-project-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
         </div>
+        
+        
 
     <section id="tech" style="padding: 60px 0; background: var(--light);">
     <h2 class="section-title" data-i18n="tech_title" style="text-align:center;">Modern Machinery & Technology</h2>
@@ -2441,16 +2450,6 @@ dots.forEach((dot, index) => {
   });
 });
 </script>
-<div class="calc-group">
-    <label>Upload Your Design (PDF/Image)</label>
-    <input type="file" id="fileInput" accept="image/*,.pdf" onchange="updateFileStatus()">
-    <div id="uploadStatus" style="font-size: 13px; margin-top: 5px; color: #ffd700; font-weight: bold;"></div>
-</div>
-
-<button class="wa-btn" onclick="sendToWhatsApp()" style="width:100%; padding:15px; background:#25D366; color:white; border:none; border-radius:5px; font-weight:bold; cursor:pointer; font-size:16px;">
-    <i class="fab fa-whatsapp"></i> SEND ORDER VIA WHATSAPP
-</button>
-
 <script>
 function updateFileStatus() {
     const fileInput = document.getElementById('fileInput');
