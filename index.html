@@ -1549,7 +1549,6 @@ section {
                 <tr><td>Email Configuration</td><td>Service</td><td>10,000</td><td><button onclick="addToCart('Email Setup', 10000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
                 <tr><td>Bulk SMS Setup</td><td>Service</td><td>30,000</td><td><button onclick="addToCart('Bulk SMS', 30000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
             </table>
-        </div>
 </section>
     <div class="calculator-container">
     <h3>🖩 Instant Price Estimator</h3>
@@ -1557,7 +1556,7 @@ section {
 
     <div class="calc-group">
         <label>Service Type</label>
-        <select id="serviceType" onchange="calculateTotal()">
+        <select id="serviceType">
             <option value="50000">Business Cards (50,000 UGX/100 Pcs)</option>
             <option value="400000">Web Design (400,000 UGX)</option>
             <option value="30000">Logo Design (30,000 UGX)</option>
@@ -1602,12 +1601,12 @@ section {
 
     <div class="calc-group">
         <label>Quantity / Number of Pages</label>
-        <input type="number" id="quantity" value="1" min="1" oninput="calculateTotal()">
+        <input type="number" id="quantity" value="1" min="1">
     </div>
 
     <div class="calc-group">
         <label>Add Finishing</label>
-        <select id="finishing" onchange="calculateTotal()">
+        <select id="finishing">
             <option value="0">None</option>
             <option value="3000">Spiral Binding (+3,000 UGX)</option>
             <option value="15000">Hard Cover Binding (+15,000 UGX)</option>
@@ -1615,14 +1614,108 @@ section {
         </select>
     </div>
 
+    <button onclick="addToOrder()" style="width:100%; padding:10px; margin-bottom:15px; background:var(--accent); color:white; border:none; border-radius:4px; cursor:pointer;">
+        Add Item to Order
+    </button>
+
+    <div id="orderList" style="background:#f4f4f4; padding:10px; border-radius:5px; margin-bottom:15px; font-size:14px;">
+        <strong>Current Order:</strong>
+        <div id="itemsContainer">No items added yet.</div>
+    </div>
+
     <div class="calc-result">
         <h4>Estimated Total:</h4>
         <span id="totalDisplay">0</span> <small>UGX</small>
     </div>
+
+    <div class="calc-group">
+        <label>Attach Design/Document (Optional)</label>
+        <input type="file" id="fileInput" accept="image/*,.pdf" onchange="updateFileStatus()">
+        <div id="uploadStatus" style="font-size: 13px; margin-top: 5px; color: #25D366; font-weight: bold;"></div>
+    </div>
+
+    <button class="wa-btn" onclick="sendToWhatsApp()" style="width:100%; padding:15px; background:#25D366; color:white; border:none; border-radius:5px; font-weight:bold; cursor:pointer; font-size:16px;">
+        <i class="fab fa-whatsapp"></i> SEND ORDER VIA WHATSAPP
+    </button>
+</div>
+
+<script>
+let items = [];
+
+function addToOrder() {
+    const serviceSelect = document.getElementById('serviceType');
+    const serviceName = serviceSelect.options[serviceSelect.selectedIndex].text;
+    const servicePrice = parseInt(serviceSelect.value);
+    const quantity = parseInt(document.getElementById('quantity').value) || 1;
+    const finishingSelect = document.getElementById('finishing');
+    const finishingName = finishingSelect.options[finishingSelect.selectedIndex].text;
+    const finishingPrice = parseInt(finishingSelect.value);
     
-<button class="wa-btn" onclick="sendToWhatsApp()" style="width:100%; padding:15px; background:#25D366; color:white; border:none; border-radius:5px; font-weight:bold; cursor:pointer; font-size:16px;">
-    <i class="fab fa-whatsapp"></i> SEND ORDER VIA WHATSAPP
-</button>
+    const itemTotal = (servicePrice * quantity) + finishingPrice;
+    
+    items.push({
+        description: `${quantity}x ${serviceName} (Finishing: ${finishingName})`,
+        price: itemTotal
+    });
+    
+    updateDisplay();
+}
+
+function updateDisplay() {
+    const container = document.getElementById('itemsContainer');
+    const totalDisplay = document.getElementById('totalDisplay');
+    let grandTotal = 0;
+    
+    if (items.length === 0) {
+        container.innerHTML = "No items added yet.";
+    } else {
+        container.innerHTML = items.map((item, index) => `
+            <div style="border-bottom:1px solid #ddd; padding:5px 0;">
+                ${item.description} - ${item.price.toLocaleString()} UGX
+                <span onclick="removeItem(${index})" style="color:red; cursor:pointer; float:right;">[x]</span>
+            </div>
+        `).join('');
+    }
+    
+    items.forEach(item => grandTotal += item.price);
+    totalDisplay.innerText = grandTotal.toLocaleString();
+}
+
+function removeItem(index) {
+    items.splice(index, 1);
+    updateDisplay();
+}
+
+function updateFileStatus() {
+    const fileInput = document.getElementById('fileInput');
+    const status = document.getElementById('uploadStatus');
+    if(fileInput.files.length > 0) {
+        status.innerText = "Ready: " + fileInput.files[0].name;
+    }
+}
+
+function sendToWhatsApp() {
+    if (items.length === 0) {
+        alert("Please add at least one item to your order first.");
+        return;
+    }
+
+    const phone = "256773353091"; 
+    const total = document.getElementById('totalDisplay').innerText;
+    const fileInput = document.getElementById('fileInput');
+    let fileName = fileInput.files.length > 0 ? fileInput.files[0].name : "No file attached";
+
+    let itemString = items.map(item => `- ${item.description}: ${item.price.toLocaleString()} UGX`).join('%0A');
+
+    const message = `Hello, I'd like to place an order for:%0A%0A` +
+                    `${itemString}%0A%0A` +
+                    `*Grand Total:* UGX ${total}%0A` +
+                    `*Attached File:* ${fileName}%0A%0A` +
+                    `Please let me know how to proceed.`;
+
+    window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+}
+</script>
 <p></p>
 <p></p>
 <p></p>
@@ -2340,9 +2433,43 @@ dots.forEach((dot, index) => {
   });
 });
 
+<script>
+function calculateTotal() {
+    const servicePrice = parseFloat(document.getElementById('serviceType').value);
+    const quantity = parseFloat(document.getElementById('quantity').value) || 0;
+    const finishingPrice = parseFloat(document.getElementById('finishing').value);
+
+    const total = (servicePrice * quantity) + finishingPrice;
+    
+    // Updates the display with commas for readability (e.g., 50,000)
+    document.getElementById('totalDisplay').innerText = total.toLocaleString();
+}
+
+function sendToWhatsApp() {
+    const serviceSelect = document.getElementById('serviceType');
+    const serviceName = serviceSelect.options[serviceSelect.selectedIndex].text;
+    const quantity = document.getElementById('quantity').value;
+    const finishingSelect = document.getElementById('finishing');
+    const finishingName = finishingSelect.options[finishingSelect.selectedIndex].text;
+    const total = document.getElementById('totalDisplay').innerText;
+
+    // REPLACE THE NUMBER BELOW WITH YOUR ACTUAL WHATSAPP NUMBER
+    // Must be in international format without the "+" (e.g., 256700000000)
+    const phoneNumber = "256773353091"; 
+
+    const message = `Hello! I would like to place an order:%0A%0A` +
+                    `*Service:* ${serviceName}%0A` +
+                    `*Quantity:* ${quantity}%0A` +
+                    `*Finishing:* ${finishingName}%0A` +
+                    `*Total Estimate:* UGX ${total}`;
+
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+    
+    window.open(whatsappURL, '_blank');
+}
+
+// Run once on load to set initial price
+calculateTotal();
 </script>
-<button class="wa-btn" onclick="sendToWhatsApp()" style="width:100%; padding:15px; background:#25D366; color:white; border:none; border-radius:5px; font-weight:bold; cursor:pointer; font-size:16px;">
-    <i class="fab fa-whatsapp"></i> SEND ORDER VIA WHATSAPP
-</button>
 </body>
 </html>
