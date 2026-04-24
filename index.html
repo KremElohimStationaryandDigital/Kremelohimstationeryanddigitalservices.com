@@ -2462,31 +2462,38 @@ function updateFileStatus() {
 }
 
 function sendToWhatsApp() {
+    if (items.length === 0) {
+        alert("Please add at least one item to your order first.");
+        return;
+    }
+
     const phone = "256773353091"; 
-    const service = document.getElementById('serviceType').options[document.getElementById('serviceType').selectedIndex].text;
-    const qty = document.getElementById('quantity').value;
-    const finish = document.getElementById('finishing').options[document.getElementById('finishing').selectedIndex].text;
     const total = document.getElementById('totalDisplay').innerText;
     const fileInput = document.getElementById('fileInput');
     
-    let fileInfo = "";
+    let fileNotice = "No file attached.";
+    
     if (fileInput.files.length > 0) {
-        fileInfo = `*Attached File:* ${fileInput.files[0].name}%0A(I will attach this file manually in the next step)%0A`;
-        // Alert the user so they aren't confused why the file isn't there
-        alert("WhatsApp is opening! Please remember to click the 'Paperclip' icon in WhatsApp to attach your file: " + fileInput.files[0].name);
-    } else {
-        fileInfo = `*Attached File:* No file selected%0A`;
+        const fileName = fileInput.files[0].name;
+        fileNotice = `📄 *FILE TO SEND:* ${fileName}\n(Note: I will attach this file manually using the paperclip icon in WhatsApp)`;
+        
+        // This popup reminds the user because they often forget!
+        alert("WhatsApp will open now.\n\nIMPORTANT: Please remember to attach your file (" + fileName + ") using the Paperclip icon in the chat!");
     }
 
-    const message = `Hello, I'd like to place an order:%0A%0A` +
-                    `*Service:* ${service}%0A` +
-                    `*Quantity:* ${qty}%0A` +
-                    `*Finishing:* ${finish}%0A` +
-                    `${fileInfo}` +
-                    `*Total Estimate:* UGX ${total}%0A%0A` +
-                    `Please confirm if I can send the document now.`;
+    let itemDetails = "";
+    items.forEach((item, index) => {
+        itemDetails += `${index + 1}. ${item.description}: ${item.price.toLocaleString()} UGX\n`;
+    });
 
-    window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+    const messageBody = `Hello, I'd like to place an order for:\n\n` +
+                        `${itemDetails}\n` +
+                        `*Grand Total:* UGX ${total}\n\n` +
+                        `${fileNotice}\n\n` +
+                        `Please let me know how to proceed.`;
+
+    const encodedMessage = encodeURIComponent(messageBody);
+    window.open(`https://wa.me/${phone}?text=${encodedMessage}`, '_blank');
 }
 </script>
 </body>
