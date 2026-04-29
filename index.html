@@ -30,6 +30,7 @@
     padding: 20px;
     background-color: #000080; /* Navy */
     color: #FFD700; /* Gold */
+    
 }
 
 @media (min-width: 768px) {
@@ -195,7 +196,8 @@ nav {
     background: var(--secondary); 
     transition: 0.3s; 
 }
-
+nav a{padding:12px 8px;width:100%;text-align:left;border-radius:0;font-weight:500;}
+nav a:hover{background:#0254b3;color:white;}
 .nav-links a:hover::after { 
     width: 100%; 
 }
@@ -333,6 +335,7 @@ section {
     display: block; 
     width: 60px; 
     height: 4px; 
+    border-bottom: 4px solid var(--primary);
      border-radius: 15px;
     background: var(--secondary); 
     margin: 15px auto; 
@@ -488,7 +491,7 @@ section {
 }
 
 .card-header {
-    border-bottom: 2px solid var(--primary);
+    border-bottom: 4px solid var(--primary);
     padding-bottom: 10px;
     margin-bottom: 20px;
     font-weight: bold;
@@ -1080,7 +1083,7 @@ section {
 .calculator-container h3 {
     color: var(--primary-blue);
     margin-top: 0;
-    font-size: 24px;
+    font-size: 34px;
     text-align: center;
 }
 
@@ -1221,7 +1224,7 @@ section {
                 <li><a href="#top" data-i18n="nav_home" style="color:var(--secondary)">Home</a></li>
                 <li><a href="#about" data-i18n="nav_about">About Us</a></li>
                 <li><a href="#about" data-i18n="nav_about">Recent Featured Works</a></li>
-                <li><a href="#about" data-i18n="nav_about">Modern Machinery & Technology</a></li>
+                <li><a href="#about" data-i18n="nav_about">Our Shop's Modern Machinery & Technology</a></li>
                 <li><a href="#services" data-i18n="nav_services">Our Services</a></li>
                 <li><a href="#pricing" data-i18n="nav_pricing">Practical Pricing guide</a></li>
                 <li><a href="#testimonials" data-i18n="nav_testimonials">Client Voices</a></li>
@@ -1405,7 +1408,7 @@ section {
         
 
     <section id="tech" style="padding: 60px 0; background: var(--light);">
-    <h2 class="section-title" data-i18n="tech_title" style="text-align:center;">Modern Machinery & Technology</h2>
+    <h2 class="section-title" data-i18n="tech_title" style="text-align:center;">Our Shop's Modern Machinery & Technology</h2>
     
     <div style="margin-bottom: 30px; display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
         <button class="filter-btn" onclick="filterTech('all')">All</button>
@@ -1470,12 +1473,17 @@ section {
         <img src="spiral.jpg" style="width:100%; height:150px; object-fit:cover; margin-bottom:15px; border:1px solid #eee;">STATIONERY EXPERTISE</div>
             <ul class="bulletin-list">
                 <li><i class="fas fa-print"></i> High Volume Printing</li>
+                <li><i class="fas fa-print"></i> Photocopying</li>
+                <li><i class="fas fa-camera"></i> Lamination</li>
+                <li><i class="fas fa-store"></i> Sealing</li>
                 <li><i class="fas fa-book"></i> Hard & Spiral Binding</li>
-                <li><i class="fas fa-file-invoice"></i> Receipt & Invoice Books</li>
+                <li><i class="fas fa-keyboard"></i> Secreterial Services</li>
+                <li><i class="fas fa-file-invoice"></i> Receipt, Counter, Note & Invoice Books</li>
                 <li><i class="fas fa-id-card"></i> PVC Staff ID Cards</li>
                 <li><i class="fas fa-envelope-open-text"></i> Company Letterheads</li>
+                <li><i class="fas fa-print"></i> Many Others</li>
             </ul>
-            <div class="stat-tag">98% SPEED</div>
+            <div class="stat-tag">99.99% SPEED</div>
         </div>
 
        <div class="bulletin-card" data-aos="rotate-in" style="transform: rotate(1deg);">
@@ -1504,29 +1512,33 @@ section {
         </div>
             <ul class="bulletin-list">
                 <li><i class="fas fa-code"></i> Modern Web Development</li>
-                <li><i class="fas fa-shopping-cart"></i> E-commerce Solutions</li>
-                <li><i class="fas fa-search-dollar"></i> SEO & Digital Marketing</li>
-                <li><i class="fas fa-server"></i> IT & Network Maintenance</li>
-                <li><i class="fas fa-bullhorn"></i> Social Media Management</li>
+                <li><i class="fas fa-keyboard"></i> Data Base Building and Design</li>
+                <li><i class="fas fa-book"></i> Emailing, NSSF, and TIN Registration</li>
+                <li><i class="fas fa-car"></i>Computer Aided Design and Computer Aided Engineering</li>
+                <li><i class="fas fa-server"></i> IT Training On Microsoft Packages and more</li><li><i class="fas fa-search-dollar"></i>Internet Access and surfing</li>
+                <li><i class="fas fa-bullhorn"></i> CD burning and selling</li>
+                <li><i class="fas fa-fire"></i>Movie, Music download and sell</li>
             </ul>
-            <div class="stat-tag">95% ACCURACY</div>
+            <div class="stat-tag">99% ACCURACY</div>
         </div>
     </div>
     
 </section>
 <section id="pricing" style="background:var(--light);">
-        <h2 class="section-title">Practical Pricing Guide</h2>
-        <div style="overflow-x:auto;">
-            <table class="price-table" style="background:white; border-radius:10px; overflow:hidden; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
-                <tr><th>Service</th><th>Unit</th><th>Price (UGX)</th><th>Action</th></tr>
-                <tr><td>Business Cards</td><td>100 Pcs</td><td>50,000</td><td><button onclick="addToCart('Business Cards', 50000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
-                <tr><td>Web Design</td><td>Standard</td><td>400,000</td><td><button onclick="addToCart('Web Design', 400000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
-                <tr><td>Logo Design</td><td>Professional</td><td>30,000</td><td><button onclick="addToCart('Logo Design', 30000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
-                <tr><td>Branded T-Shirt</td><td>1 Pc</td><td>25,000</td><td><button onclick="addToCart('Branded T-Shirt', 25000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
+ <h2 class="section-title">Practical Pricing Guide</h2>
+
+  <p>Please Place in Your Order.It will be automatically added to our Cart System which is linked to Our Whatsapp [256773353091]. Thank You for Choosing KREM ELOHIM STATIONERY & DIGITAL SERVICES- "We Serve With Integrity".</p>
+  <div style="overflow-x:auto;">
+  <table class="price-table" style="background:white; border-radius:10px; overflow:hidden; box-shadow:0 5px 15px rgba(0,0,0,0.05);">
+ <tr><th>Service</th><th>Unit</th><th>Price (UGX)</th><th>Action</th></tr>
+ <tr><td>Business Cards</td><td>100 Pcs</td><td>50,000</td><td><button onclick="addToCart('Business Cards', 50000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
+ <tr><td>Web Design</td><td>Standard</td><td>400,000</td><td><button onclick="addToCart('Web Design', 400000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
+  <tr><td>Logo Design</td><td>Professional</td><td>30,000</td><td><button onclick="addToCart('Logo Design', 30000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
+ <tr><td>Branded T-Shirt</td><td>1 Pc</td><td>25,000</td><td><button onclick="addToCart('Branded T-Shirt', 25000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
                 <tr><td>Photocopying B&W</td><td>Page</td><td>200</td><td><button onclick="addToCart('Photocopying B&W', 200)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
                 <tr><td>Photocopying Color</td><td>Page</td><td>1,000</td><td><button onclick="addToCart('Photocopying Color', 1000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
                 <tr><td>Printing B&W</td><td>Page</td><td>500</td><td><button onclick="addToCart('Printing B&W', 500)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
-                <tr><td>Printing Color</td><td>Page</td><td>2,000</td><td><button onclick="addToCart('Printing Color', 2000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
+                <tr><td>Printing Color</td><td>Page</td><td>1,000</td><td><button onclick="addToCart('Printing Color', 2000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
                 <tr><td>Lamination A4</td><td>1 Pc</td><td>2,000</td><td><button onclick="addToCart('Lamination A4', 2000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
                 <tr><td>Spiral Binding</td><td>Unit</td><td>3,000</td><td><button onclick="addToCart('Spiral Binding', 3000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
                 <tr><td>Hard Cover Binding</td><td>Unit</td><td>15,000</td><td><button onclick="addToCart('Hard Cover Binding', 15000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
@@ -1546,6 +1558,8 @@ section {
                 <tr><td>Certificates</td><td>1 Pc</td><td>3,000</td><td><button onclick="addToCart('Certificates', 3000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
                 <tr><td>Menu Printing</td><td>A4</td><td>5,000</td><td><button onclick="addToCart('Menu Print', 5000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
                 <tr><td>Delivery Note Books</td><td>Duplicate</td><td>15,000</td><td><button onclick="addToCart('Delivery Books', 15000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
+                <tr><td>TIN Registration</td><td>Online</td><td>10,000</td><td><button onclick="addToCart('TIN Registration', 10000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
+                <tr><td>NSSF Number Registration</td><td>Online</td><td>10,000</td><td><button onclick="addToCart('NSSF Number Registration', 10000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
                 <tr><td>Invitation Cards</td><td>1 Pc</td><td>3,000</td><td><button onclick="addToCart('Invitations', 3000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
                 <tr><td>Plastic ID Holder</td><td>1 Pc</td><td>1,000</td><td><button onclick="addToCart('ID Holder', 1000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
                 <tr><td>Passport Application</td><td>Online</td><td>20,000</td><td><button onclick="addToCart('Passport App', 20000)" style="cursor:pointer; background:var(--accent); color:white; border:none; padding:5px 10px; border-radius:4px;">Add</button></td></tr>
@@ -1560,7 +1574,7 @@ section {
             </table>
 </section>
     <div class="calculator-container">
-    <h3>🖩 Instant Price Estimator</h3>
+    <h3>Instant Price Estimator</h3>
     <p>Get a quick quote and send it to us on WhatsApp!</p>
 
     <div class="calc-group">
@@ -1573,7 +1587,7 @@ section {
             <option value="200">Photocopying B&W (200 UGX/pg)</option>
             <option value="1000">Photocopying Color (1,000 UGX/pg)</option>
             <option value="500">Printing B&W (500 UGX/pg)</option>
-            <option value="2000">Printing Color (2,000 UGX/pg)</option>
+            <option value="2000">Printing Color (1,000 UGX/pg)</option>
             <option value="2000">Lamination A4 (2,000 UGX/unit)</option>
             <option value="3000">Spiral Binding (3,000 UGX/unit)</option>
             <option value="15000">Hard Cover Binding (15,000 UGX/unit)</option>
@@ -1593,6 +1607,8 @@ section {
             <option value="3000">Certificates (3,000 UGX/unit)</option>
             <option value="5000">Menu Printing (5,000 UGX/unit)</option>
             <option value="15000">Delivery Note Books (15,000 UGX/book)</option>
+             <option value="10000">TIN registration (10,000)</option>
+             <option value="10000">NSSF Number Registration (10,000)</option>
             <option value="3000">Invitation Cards (3,000 UGX/unit)</option>
             <option value="1000">Plastic ID Holder (1,000 UGX/unit)</option>
             <option value="20000">Passport Application (20,000 UGX)</option>
@@ -1619,7 +1635,10 @@ section {
             <option value="0">None</option>
             <option value="3000">Spiral Binding (+3,000 UGX)</option>
             <option value="15000">Hard Cover Binding (+15,000 UGX)</option>
+             <option value="1000">Punching  (+1,000 UGX)</option>
             <option value="2000">Lamination (+2,000 UGX)</option>
+            <option value="5000"> Trimming (+5,000 UGX)</option>
+            <option value="5000"> Surface labelling (+5,000 UGX)</option>
         </select>
     </div>
 
@@ -1867,6 +1886,7 @@ width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy">
 
         <div style="display:flex; justify-content:space-between; margin-top:30px; font-size:0.75rem; opacity:0.6;">
             <span>© <span id="year"></span> KREM ELOHIM. <span data-i18n="footer_motto">We Serve With Integrity.</span></span>
+           <p>Designed By Khaukha Emmanuel</p>
         </div>
     </footer>
 
@@ -2156,6 +2176,10 @@ function showTour() {
         // Testimonial Rotator
         const reviews = [
             { text: '"Best digital hub in Bugema. Fast and professional!"', author: "- Brian K., Mbale" },
+            { text: '" I was able to get every item I needed, very well stocked. Am glad for helping get my TIN and NSSF number"', author: "- Opio Joel , Soroti" },
+            { text: '"The SACCO T-Shirts which you branded for us were so nice. I am happy with your services "', author: "- Cathy M., Bududa" },
+            { text: '"I loved the website which they designed for My Clinic in Butta. Modern and Out standing"', author: "- Mandu Job., Tooma Butta" },
+            { text: '"Very cheap digital hub in Mbale. Quick, precise and professional!"', author: "- Mayeku D., Namisindwa" },
             { text: '"The branded shirts were top quality. Highly recommended."', author: "- Sarah M., Jinja" },
             { text: '"Affordable web design for my startup. Very impressed."', author: "- Moses T., Kampala" }
         ];
